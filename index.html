@@ -1,1 +1,603 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Portal Corporativo</title>
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+        }
+
+        :root{
+            --primary-red:#d71920;
+            --primary-blue:#0c3c78;
+            --light:#ffffff;
+            --gray:#f4f6f9;
+            --dark:#1f2937;
+        }
+
+        body{
+            font-family:'Poppins',sans-serif;
+            background:var(--gray);
+            color:var(--dark);
+            overflow-x:hidden;
+        }
+
+        /* HEADER */
+
+        header{
+            width:100%;
+            background:#fff;
+            box-shadow:0 2px 10px rgba(0,0,0,.08);
+            position:sticky;
+            top:0;
+            z-index:999;
+        }
+
+        .topbar{
+            background:var(--primary-blue);
+            color:#fff;
+            padding:10px 5%;
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            font-size:14px;
+        }
+
+        .navbar{
+            width:100%;
+            padding:18px 5%;
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            background:#fff;
+        }
+
+        .logo{
+            display:flex;
+            align-items:center;
+            gap:12px;
+        }
+
+        .logo-box{
+            width:55px;
+            height:55px;
+            background:var(--primary-red);
+            border-radius:10px;
+        }
+
+        .logo h1{
+            font-size:24px;
+            color:var(--primary-blue);
+        }
+
+        .menu{
+            display:flex;
+            gap:30px;
+            list-style:none;
+        }
+
+        .menu li a{
+            text-decoration:none;
+            color:#333;
+            font-weight:500;
+            transition:.3s;
+        }
+
+        .menu li a:hover{
+            color:var(--primary-red);
+        }
+
+        .mobile-btn{
+            display:none;
+            font-size:28px;
+            cursor:pointer;
+        }
+
+        /* HERO */
+
+        .hero{
+            width:100%;
+            position:relative;
+            overflow:hidden;
+        }
+
+        .carousel{
+            width:100%;
+            height:75vh;
+            position:relative;
+        }
+
+        .slide{
+            position:absolute;
+            width:100%;
+            height:100%;
+            opacity:0;
+            transition:1s ease-in-out;
+        }
+
+        .slide.active{
+            opacity:1;
+            z-index:1;
+        }
+
+        .slide img{
+            width:100%;
+            height:100%;
+            object-fit:cover;
+        }
+
+        .overlay{
+            position:absolute;
+            inset:0;
+            background:linear-gradient(
+                90deg,
+                rgba(12,60,120,.8),
+                rgba(215,25,32,.5)
+            );
+            z-index:2;
+        }
+
+        .hero-content{
+            position:absolute;
+            top:50%;
+            left:8%;
+            transform:translateY(-50%);
+            color:#fff;
+            z-index:3;
+            max-width:650px;
+        }
+
+        .hero-content h2{
+            font-size:60px;
+            line-height:1.1;
+            margin-bottom:20px;
+            font-weight:700;
+        }
+
+        .hero-content p{
+            font-size:18px;
+            margin-bottom:30px;
+        }
+
+        .hero-buttons{
+            display:flex;
+            gap:20px;
+            flex-wrap:wrap;
+        }
+
+        .btn{
+            padding:15px 30px;
+            border:none;
+            border-radius:50px;
+            font-size:16px;
+            font-weight:600;
+            cursor:pointer;
+            transition:.3s;
+        }
+
+        .btn-primary{
+            background:var(--primary-red);
+            color:#fff;
+        }
+
+        .btn-primary:hover{
+            transform:translateY(-3px);
+        }
+
+        .btn-secondary{
+            background:#fff;
+            color:var(--primary-blue);
+        }
+
+        .btn-secondary:hover{
+            transform:translateY(-3px);
+        }
+
+        /* CONTROLS */
+
+        .controls{
+            position:absolute;
+            width:100%;
+            top:50%;
+            transform:translateY(-50%);
+            display:flex;
+            justify-content:space-between;
+            padding:0 25px;
+            z-index:5;
+        }
+
+        .control{
+            width:55px;
+            height:55px;
+            border-radius:50%;
+            background:rgba(255,255,255,.2);
+            backdrop-filter:blur(8px);
+            border:none;
+            color:#fff;
+            font-size:22px;
+            cursor:pointer;
+            transition:.3s;
+        }
+
+        .control:hover{
+            background:var(--primary-red);
+        }
+
+        /* DOTS */
+
+        .dots{
+            position:absolute;
+            bottom:30px;
+            width:100%;
+            display:flex;
+            justify-content:center;
+            gap:12px;
+            z-index:10;
+        }
+
+        .dot{
+            width:14px;
+            height:14px;
+            border-radius:50%;
+            background:rgba(255,255,255,.5);
+            cursor:pointer;
+            transition:.3s;
+        }
+
+        .dot.active{
+            background:#fff;
+            transform:scale(1.2);
+        }
+
+        /* CARDS */
+
+        .services{
+            width:100%;
+            padding:80px 5%;
+            display:grid;
+            grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+            gap:30px;
+            background:#fff;
+        }
+
+        .card{
+            background:#fff;
+            border-radius:20px;
+            padding:35px;
+            box-shadow:0 10px 30px rgba(0,0,0,.08);
+            transition:.3s;
+            border-top:5px solid var(--primary-red);
+        }
+
+        .card:hover{
+            transform:translateY(-8px);
+        }
+
+        .card h3{
+            margin-bottom:15px;
+            color:var(--primary-blue);
+        }
+
+        .card p{
+            line-height:1.7;
+            color:#555;
+        }
+
+        /* FOOTER */
+
+        footer{
+            background:var(--primary-blue);
+            color:#fff;
+            padding:50px 5%;
+            text-align:center;
+        }
+
+        /* RESPONSIVE */
+
+        @media(max-width:992px){
+
+            .hero-content h2{
+                font-size:45px;
+            }
+
+            .menu{
+                position:fixed;
+                top:0;
+                right:-100%;
+                width:280px;
+                height:100vh;
+                background:#fff;
+                flex-direction:column;
+                padding-top:100px;
+                align-items:center;
+                transition:.4s;
+                box-shadow:-5px 0 15px rgba(0,0,0,.1);
+            }
+
+            .menu.active{
+                right:0;
+            }
+
+            .mobile-btn{
+                display:block;
+            }
+        }
+
+        @media(max-width:768px){
+
+            .carousel{
+                height:85vh;
+            }
+
+            .hero-content{
+                left:5%;
+                right:5%;
+            }
+
+            .hero-content h2{
+                font-size:34px;
+            }
+
+            .hero-content p{
+                font-size:16px;
+            }
+
+            .btn{
+                width:100%;
+            }
+
+            .controls{
+                display:none;
+            }
+        }
+
+        @media(max-width:480px){
+
+            .hero-content h2{
+                font-size:28px;
+            }
+
+            .topbar{
+                flex-direction:column;
+                gap:10px;
+                text-align:center;
+            }
+
+            .logo h1{
+                font-size:20px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <header>
+
+        <div class="topbar">
+            <span>Portal Corporativo Empresarial</span>
+            <span>Soporte 24/7 | Contacto</span>
+        </div>
+
+        <div class="navbar">
+
+            <div class="logo">
+                <div class="logo-box"></div>
+                <h1>ADENERGY</h1>
+            </div>
+
+            <ul class="menu" id="menu">
+                <li><a href="#">Inicio</a></li>
+                <li><a href="#">Servicios</a></li>
+                <li><a href="#">Nosotros</a></li>
+                <li><a href="#">Soluciones</a></li>
+                <li><a href="#">Contacto</a></li>
+            </ul>
+
+            <div class="mobile-btn" id="mobileBtn">
+                ☰
+            </div>
+
+        </div>
+
+    </header>
+
+    <!-- HERO -->
+
+    <section class="hero">
+
+        <div class="carousel">
+
+            <!-- SLIDE 1 -->
+            <div class="slide active">
+                <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=1600&auto=format&fit=crop" alt="">
+            </div>
+
+            <!-- SLIDE 2 -->
+            <div class="slide">
+                <img src="https://images.unsplash.com/photo-1494412651409-8963ce7935a7?q=80&w=1600&auto=format&fit=crop" alt="">
+            </div>
+
+            <!-- SLIDE 3 -->
+            <div class="slide">
+                <img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?q=80&w=1600&auto=format&fit=crop" alt="">
+            </div>
+
+            <div class="overlay"></div>
+
+            <div class="hero-content">
+                <h2>Innovación y Tecnología Empresarial</h2>
+
+                <p>
+                    Plataforma corporativa adaptable para todos los dispositivos,
+                    diseñada con enfoque moderno, rendimiento y experiencia visual.
+                </p>
+
+                <div class="hero-buttons">
+                    <button class="btn btn-primary">
+                        Conocer Más
+                    </button>
+
+                    <button class="btn btn-secondary">
+                        Servicios
+                    </button>
+                </div>
+            </div>
+
+            <!-- CONTROLS -->
+
+            <div class="controls">
+                <button class="control" id="prev">
+                    ❮
+                </button>
+
+                <button class="control" id="next">
+                    ❯
+                </button>
+            </div>
+
+            <!-- DOTS -->
+
+            <div class="dots" id="dots"></div>
+
+        </div>
+
+    </section>
+
+    <!-- SERVICES -->
+
+    <section class="services">
+
+        <div class="card">
+            <h3>Infraestructura TI</h3>
+
+            <p>
+                Administración de redes, servidores, seguridad y monitoreo empresarial.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>Mesa de Ayuda</h3>
+
+            <p>
+                Sistema de tickets, incidentes y soporte técnico centralizado.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>Reservación de Salas</h3>
+
+            <p>
+                Integración con Teams y dispositivos inteligentes para juntas.
+            </p>
+        </div>
+
+    </section>
+
+    <footer>
+        © 2026 Portal Empresarial | Todos los derechos reservados
+    </footer>
+
+    <script>
+
+        // MENU MOBILE
+
+        const mobileBtn = document.getElementById("mobileBtn");
+        const menu = document.getElementById("menu");
+
+        mobileBtn.addEventListener("click", () => {
+            menu.classList.toggle("active");
+        });
+
+        // CAROUSEL
+
+        const slides = document.querySelectorAll(".slide");
+        const dotsContainer = document.getElementById("dots");
+
+        let current = 0;
+
+        slides.forEach((_, index) => {
+
+            const dot = document.createElement("div");
+            dot.classList.add("dot");
+
+            if(index === 0){
+                dot.classList.add("active");
+            }
+
+            dot.addEventListener("click", () => {
+                showSlide(index);
+            });
+
+            dotsContainer.appendChild(dot);
+
+        });
+
+        const dots = document.querySelectorAll(".dot");
+
+        function showSlide(index){
+
+            slides.forEach(slide => {
+                slide.classList.remove("active");
+            });
+
+            dots.forEach(dot => {
+                dot.classList.remove("active");
+            });
+
+            slides[index].classList.add("active");
+            dots[index].classList.add("active");
+
+            current = index;
+        }
+
+        document.getElementById("next").addEventListener("click", () => {
+
+            current++;
+
+            if(current >= slides.length){
+                current = 0;
+            }
+
+            showSlide(current);
+
+        });
+
+        document.getElementById("prev").addEventListener("click", () => {
+
+            current--;
+
+            if(current < 0){
+                current = slides.length - 1;
+            }
+
+            showSlide(current);
+
+        });
+
+        // AUTO PLAY
+
+        setInterval(() => {
+
+            current++;
+
+            if(current >= slides.length){
+                current = 0;
+            }
+
+            showSlide(current);
+
+        }, 5000);
+
+    </script>
+
+</body>
+</html>
