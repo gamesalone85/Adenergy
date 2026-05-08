@@ -1,97 +1,49 @@
-// MENU MOBILE
+// SWIPER
 
-const mobileBtn = document.getElementById("mobileBtn");
-const menu = document.getElementById("menu");
+const swiper = new Swiper(".mySwiper", {
 
-mobileBtn.addEventListener("click", () => {
-    menu.classList.toggle("active");
-});
+    loop:true,
 
-// CAROUSEL
+    speed:1000,
 
-const slides = document.querySelectorAll(".slide");
-const dotsContainer = document.getElementById("dots");
+    autoplay:{
+        delay:4000,
+        disableOnInteraction:false,
+    },
 
-let current = 0;
+    pagination:{
+        el:".swiper-pagination",
+        clickable:true,
+    },
 
-// CREAR DOTS
+    navigation:{
+        nextEl:".swiper-button-next",
+        prevEl:".swiper-button-prev",
+    },
 
-slides.forEach((_, index) => {
+    breakpoints:{
 
-    const dot = document.createElement("div");
+        0:{
+            slidesPerView:1,
+            spaceBetween:10
+        },
 
-    dot.classList.add("dot");
+        768:{
+            slidesPerView:1,
+            spaceBetween:20
+        },
 
-    if(index === 0){
-        dot.classList.add("active");
+        1200:{
+            slidesPerView:1,
+            spaceBetween:30
+        }
+
     }
 
-    dot.addEventListener("click", () => {
-        showSlide(index);
-    });
-
-    dotsContainer.appendChild(dot);
-
 });
 
-const dots = document.querySelectorAll(".dot");
+// REDIRECT FUNCTION
 
-// MOSTRAR SLIDE
-
-function showSlide(index){
-
-    slides.forEach(slide => {
-        slide.classList.remove("active");
-    });
-
-    dots.forEach(dot => {
-        dot.classList.remove("active");
-    });
-
-    slides[index].classList.add("active");
-    dots[index].classList.add("active");
-
-    current = index;
+function go(url){
+    window.location.href = url;
 }
-
-// NEXT
-
-document.getElementById("next").addEventListener("click", () => {
-
-    current++;
-
-    if(current >= slides.length){
-        current = 0;
-    }
-
-    showSlide(current);
-
-});
-
-// PREV
-
-document.getElementById("prev").addEventListener("click", () => {
-
-    current--;
-
-    if(current < 0){
-        current = slides.length - 1;
-    }
-
-    showSlide(current);
-
-});
-
-// AUTOPLAY
-
-setInterval(() => {
-
-    current++;
-
-    if(current >= slides.length){
-        current = 0;
-    }
-
-    showSlide(current);
-
-}, 5000);
