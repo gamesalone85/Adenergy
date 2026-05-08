@@ -1,34 +1,84 @@
+/* =======================================================
+   ADENERGY NEWSROOM
+   MAIN STYLES
+======================================================= */
+
+:root{
+
+    /* COLORES */
+    --primary-red:#d71920;
+    --primary-blue:#0b3b78;
+    --secondary-blue:#144f9c;
+
+    --cream:#f6f1e7;
+    --cream-soft:#fffaf1;
+
+    --white:#ffffff;
+    --text-dark:#1d2939;
+    --text-gray:#5b6470;
+
+    --shadow:0 10px 30px rgba(0,0,0,.12);
+
+}
+
+/* =======================================================
+   GLOBAL
+======================================================= */
+
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
 }
 
+html{
+    scroll-behavior:smooth;
+}
+
 body{
     font-family:'Poppins',sans-serif;
     overflow-x:hidden;
-    background:#07111f;
+    background:var(--cream);
+    color:var(--text-dark);
 }
 
-/* FONDO */
+/* =======================================================
+   BACKGROUND
+======================================================= */
 
 .bg-image{
     position:fixed;
-    width:100%;
-    height:100%;
-    background:url('/images/background.jpg') center/cover no-repeat;
+    inset:0;
+
+    background:
+        linear-gradient(
+            rgba(246,241,231,.92),
+            rgba(246,241,231,.94)
+        ),
+        url('/images/background.jpg');
+
+    background-size:cover;
+    background-position:center;
+
     z-index:-2;
 }
 
 .bg-overlay{
     position:fixed;
-    width:100%;
-    height:100%;
-    background:linear-gradient(
-        180deg,
-        rgba(4,14,28,.95),
-        rgba(8,27,53,.90)
-    );
+    inset:0;
+
+    background:
+        radial-gradient(
+            circle at top right,
+            rgba(215,25,32,.08),
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at bottom left,
+            rgba(11,59,120,.10),
+            transparent 40%
+        );
+
     z-index:-1;
 }
 
@@ -37,37 +87,49 @@ body{
     z-index:2;
 }
 
-/* HERO */
+/* =======================================================
+   HERO
+======================================================= */
 
 .hero{
-    padding:140px 20px 60px;
-    text-align:center;
+    padding:180px 20px 70px;
+    position:relative;
+}
+
+.hero .container{
+    max-width:1100px;
 }
 
 .hero h1{
-    color:#fff;
-    font-size:60px;
+    font-size:64px;
     font-weight:700;
-    margin-bottom:20px;
+    color:var(--primary-blue);
+    line-height:1.1;
+    margin-bottom:25px;
 }
 
 .highlight{
-    color:#ff3b3b;
+    color:var(--primary-red);
     font-size:24px;
     font-weight:600;
     margin-bottom:20px;
 }
 
 .description{
-    color:#d1d5db;
+    color:var(--text-gray);
+    font-size:18px;
+    line-height:1.9;
     max-width:900px;
     margin:auto;
-    line-height:1.8;
-    font-size:18px;
 }
+
+/* =======================================================
+   BUTTONS
+======================================================= */
 
 .hero-buttons{
     margin-top:40px;
+
     display:flex;
     justify-content:center;
     gap:20px;
@@ -75,136 +137,293 @@ body{
 }
 
 .btn-main{
-    background:#d71920;
+    background:linear-gradient(
+        135deg,
+        var(--primary-red),
+        #ff3c45
+    );
+
     border:none;
-    padding:14px 30px;
-    border-radius:50px;
     color:#fff;
+
+    padding:16px 34px;
+
+    border-radius:50px;
+
     font-weight:600;
-    transition:.3s;
+
+    transition:.4s;
+
+    box-shadow:
+        0 10px 25px rgba(215,25,32,.25);
 }
 
 .btn-second{
-    background:#0c3c78;
+    background:linear-gradient(
+        135deg,
+        var(--primary-blue),
+        var(--secondary-blue)
+    );
+
     border:none;
-    padding:14px 30px;
-    border-radius:50px;
     color:#fff;
+
+    padding:16px 34px;
+
+    border-radius:50px;
+
     font-weight:600;
-    transition:.3s;
+
+    transition:.4s;
+
+    box-shadow:
+        0 10px 25px rgba(11,59,120,.22);
 }
 
 .btn-main:hover,
 .btn-second:hover{
+
     transform:translateY(-5px);
+
+    box-shadow:
+        0 18px 35px rgba(0,0,0,.18);
 }
 
-/* SWIPER */
+/* =======================================================
+   SWIPER
+======================================================= */
 
 .swiper-section{
-    padding:30px 5% 80px;
+    padding:20px 5% 90px;
 }
 
 .swiper{
     width:100%;
-    border-radius:30px;
+    border-radius:35px;
     overflow:hidden;
-    box-shadow:0 15px 40px rgba(0,0,0,.4);
+
+    box-shadow:
+        0 20px 45px rgba(0,0,0,.16);
 }
 
 .swiper-slide{
     position:relative;
     overflow:hidden;
-    border-radius:20px;
-    cursor:pointer;
 }
 
 .swiper-slide img{
     width:100%;
-    height:650px;
+    height:680px;
+
     object-fit:cover;
-    transition:.5s;
+
+    transition:.6s;
 }
 
 .swiper-slide:hover img{
     transform:scale(1.05);
 }
 
-/* SERVICIOS */
+/* OVERLAY */
+
+.swiper-slide::before{
+    content:"";
+
+    position:absolute;
+    inset:0;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(11,59,120,.35),
+            rgba(215,25,32,.18)
+        );
+
+    z-index:2;
+}
+
+/* =======================================================
+   SWIPER BUTTONS
+======================================================= */
+
+.swiper-button-next,
+.swiper-button-prev{
+
+    width:55px !important;
+    height:55px !important;
+
+    border-radius:50%;
+
+    background:rgba(255,255,255,.18);
+
+    backdrop-filter:blur(10px);
+
+    color:#fff !important;
+
+    transition:.4s;
+}
+
+.swiper-button-next:hover,
+.swiper-button-prev:hover{
+    background:var(--primary-red);
+}
+
+.swiper-button-next::after,
+.swiper-button-prev::after{
+    font-size:20px !important;
+    font-weight:700;
+}
+
+/* PAGINATION */
+
+.swiper-pagination-bullet{
+    width:14px !important;
+    height:14px !important;
+
+    background:#ffffff !important;
+
+    opacity:.6;
+}
+
+.swiper-pagination-bullet-active{
+    background:var(--primary-red) !important;
+    opacity:1;
+}
+
+/* =======================================================
+   SERVICES
+======================================================= */
 
 .services-section{
-    padding:80px 0;
+    padding:90px 0;
 }
 
 .service-card{
-    background:rgba(255,255,255,.05);
+
+    background:rgba(255,255,255,.75);
+
     backdrop-filter:blur(10px);
-    border:1px solid rgba(255,255,255,.08);
-    border-radius:25px;
-    padding:40px;
+
+    border-radius:30px;
+
+    padding:45px 35px;
+
     text-align:center;
-    transition:.4s;
+
     height:100%;
+
+    transition:.4s;
+
+    border:
+        1px solid rgba(11,59,120,.08);
+
+    box-shadow:var(--shadow);
 }
 
 .service-card:hover{
+
     transform:translateY(-10px);
-    border-color:#d71920;
+
+    border-color:rgba(215,25,32,.25);
+
+    box-shadow:
+        0 20px 40px rgba(0,0,0,.14);
 }
 
 .service-card i{
-    font-size:55px;
-    color:#d71920;
+
+    font-size:58px;
+
+    color:var(--primary-red);
+
     margin-bottom:25px;
 }
 
 .service-card h3{
-    color:#fff;
-    margin-bottom:20px;
+
+    color:var(--primary-blue);
+
+    margin-bottom:18px;
+
+    font-weight:700;
 }
 
 .service-card p{
-    color:#d1d5db;
-    line-height:1.8;
+
+    color:var(--text-gray);
+
+    line-height:1.9;
 }
 
-/* ABOUT */
+/* =======================================================
+   ABOUT SECTION
+======================================================= */
 
 .about-section{
     padding:100px 0;
 }
 
+.about-section h2{
+    color:var(--primary-blue) !important;
+    font-size:48px;
+    font-weight:700;
+}
+
+.about-section p{
+    color:var(--text-gray) !important;
+    line-height:2;
+    font-size:18px;
+}
+
+/* BANNER */
+
 .banner-click{
-    border-radius:25px;
-    transition:.4s;
-    box-shadow:0 15px 40px rgba(0,0,0,.4);
+
+    border-radius:30px;
+
+    overflow:hidden;
+
+    box-shadow:
+        0 18px 40px rgba(0,0,0,.18);
+
+    transition:.5s;
 }
 
 .banner-click:hover{
     transform:scale(1.02);
 }
 
-/* SWIPER BUTTONS */
+/* =======================================================
+   SECTION SPACING
+======================================================= */
 
-.swiper-button-next,
-.swiper-button-prev{
-    color:#fff !important;
+section{
+    position:relative;
 }
 
-.swiper-pagination-bullet{
-    background:#fff !important;
-}
+/* =======================================================
+   RESPONSIVE
+======================================================= */
 
-.swiper-pagination-bullet-active{
-    background:#d71920 !important;
-}
+@media(max-width:1200px){
 
-/* RESPONSIVE */
+    .hero h1{
+        font-size:54px;
+    }
+
+    .swiper-slide img{
+        height:600px;
+    }
+}
 
 @media(max-width:992px){
 
+    .hero{
+        padding-top:170px;
+    }
+
     .hero h1{
-        font-size:45px;
+        font-size:46px;
     }
 
     .swiper-slide img{
@@ -215,11 +434,11 @@ body{
 @media(max-width:768px){
 
     .hero{
-        padding-top:120px;
+        padding-top:150px;
     }
 
     .hero h1{
-        font-size:34px;
+        font-size:36px;
     }
 
     .highlight{
@@ -231,14 +450,22 @@ body{
     }
 
     .swiper-slide img{
-        height:350px;
+        height:360px;
+    }
+
+    .about-section h2{
+        font-size:34px;
+    }
+
+    .about-section p{
+        font-size:16px;
     }
 }
 
-@media(max-width:480px){
+@media(max-width:576px){
 
     .hero h1{
-        font-size:28px;
+        font-size:30px;
     }
 
     .swiper-slide img{
@@ -248,5 +475,9 @@ body{
     .btn-main,
     .btn-second{
         width:100%;
+    }
+
+    .service-card{
+        padding:35px 25px;
     }
 }
