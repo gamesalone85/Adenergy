@@ -3,150 +3,276 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Adenergy Newsroom</title>
 
-    <link rel="stylesheet" href="style.css">
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!-- Swiper -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+
+    <!-- CSS -->
+    <link href="css/styles.css" rel="stylesheet">
+    <link href="header.css" rel="stylesheet">
+
 </head>
 
 <body>
 
-    <header>
+<!-- FONDO -->
+<div class="bg-image"></div>
+<div class="bg-overlay"></div>
 
-        <div class="topbar">
-            <span>Adenergy Newsroom</span>
-            <span>Soporte Técnico | Contacto</span>
-        </div>
+<div class="main-content">
 
-        <div class="navbar">
-
-            <div class="logo">
-                <div class="logo-box"></div>
-                <h1>ADENERGY NEWSROOM</h1>
-            </div>
-
-            <ul class="menu" id="menu">
-                <li><a href="#">Inicio</a></li>
-                <li><a href="#">Servicios</a></li>
-                <li><a href="#">Nosotros</a></li>
-                <li><a href="#">Soluciones</a></li>
-                <li><a href="#">Contacto</a></li>
-            </ul>
-
-            <div class="mobile-btn" id="mobileBtn">
-                ☰
-            </div>
-
-        </div>
-
-    </header>
+    <!-- HEADER -->
+    <div id="header"></div>
 
     <!-- HERO -->
-
     <section class="hero">
 
-        <div class="carousel">
+        <div class="container text-center">
 
-            <div class="slide active">
-                <img src="images/slide1.jpg" alt="">
+            <h1>
+                Bienvenido a Adenergy Newsroom
+            </h1>
+
+            <p class="highlight">
+                Innovación, tecnología y comunicación empresarial
+            </p>
+
+            <p class="description">
+                Plataforma corporativa adaptable para todos los dispositivos,
+                diseñada para compartir noticias, eventos y soluciones empresariales.
+            </p>
+
+            <div class="hero-buttons">
+
+                <button class="btn-main">
+                    Políticas y Procedimientos
+                </button>
+
+                <button class="btn-second">
+                    TechRoom
+                </button>
+
             </div>
 
-            <div class="slide">
-                <img src="images/slide2.jpg" alt="">
+        </div>
+
+    </section>
+
+    <!-- CARRUSEL -->
+    <section class="swiper-section">
+
+        <div class="swiper mySwiper">
+
+            <div class="swiper-wrapper">
+
+                <div class="swiper-slide">
+                    <img src="/images/slide1.jpg" alt="">
+                </div>
+
+                <div class="swiper-slide">
+                    <img src="/images/slide2.jpg" alt="">
+                </div>
+
+                <div class="swiper-slide">
+                    <img src="/images/slide3.jpg" alt="">
+                </div>
+
+                <div class="swiper-slide">
+                    <img src="/images/slide4.jpg" alt="">
+                </div>
+
+                <div class="swiper-slide">
+                    <img src="/images/slide5.jpg" alt="">
+                </div>
+
             </div>
 
-            <div class="slide">
-                <img src="images/slide3.jpg" alt="">
-            </div>
+            <!-- Flechas -->
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
 
-            <div class="overlay"></div>
+            <!-- Pagination -->
+            <div class="swiper-pagination"></div>
 
-            <div class="hero-content">
+        </div>
 
-                <h2>Innovación y Tecnología Empresarial</h2>
+    </section>
 
-                <p>
-                    Le damos la bienvenida a la edición del boletín mensual de Adenergy Newsroom. 
-                    Nos complace compartir las últimas noticias, actualizaciones e historias de nuestra comunidad, 
-                    tenemos una gran cantidad de eventos y recursos interesantes que le ayudarán a mantenerse activo y comprometido. 
-                    Empecemos
-                </p>
+    <!-- SERVICIOS -->
+    <section class="services-section">
 
-                <div class="hero-buttons">
+        <div class="container">
 
-                    <button class="btn btn-primary">
-                        Políticas y Procedimientos
-                    </button>
+            <div class="row g-4">
 
-                    <button class="btn btn-secondary">
-                        Techroom
-                    </button>
+                <div class="col-lg-4 col-md-6">
+
+                    <div class="service-card">
+
+                        <i class="fa-solid fa-network-wired"></i>
+
+                        <h3>
+                            Infraestructura TI
+                        </h3>
+
+                        <p>
+                            Administración de redes, servidores,
+                            seguridad y monitoreo empresarial.
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+
+                    <div class="service-card">
+
+                        <i class="fa-solid fa-headset"></i>
+
+                        <h3>
+                            Soporte Técnico
+                        </h3>
+
+                        <p>
+                            Centro de atención y solución
+                            de incidentes tecnológicos.
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+
+                    <div class="service-card">
+
+                        <i class="fa-solid fa-tv"></i>
+
+                        <h3>
+                            Reservación de Salas
+                        </h3>
+
+                        <p>
+                            Integración con Teams,
+                            Zoom y dispositivos inteligentes.
+                        </p>
+
+                    </div>
 
                 </div>
 
             </div>
 
-            <div class="controls">
+        </div>
 
-                <button class="control" id="prev">
-                    ❮
-                </button>
+    </section>
 
-                <button class="control" id="next">
-                    ❯
-                </button>
+    <!-- ABOUT -->
+    <section class="about-section text-center" id="about">
+
+        <div class="container px-4 px-lg-5">
+
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+
+                <div class="col-lg-8">
+
+                    <h2 class="text-white mb-4">
+                        ¿Qué es Adenergy Newsroom?
+                    </h2>
+
+                    <p class="text-white-50">
+
+                        Adenergy Newsroom es una plataforma empresarial diseñada
+                        para centralizar información corporativa, eventos,
+                        noticias, recursos tecnológicos y soluciones internas.
+
+                        <br><br>
+
+                        Nuestro objetivo es mantener conectados a todos los equipos
+                        mediante una experiencia moderna, intuitiva y responsiva.
+
+                    </p>
+
+                </div>
 
             </div>
 
-            <div class="dots" id="dots"></div>
+            <!-- BANNER -->
+            <div class="mt-4">
+
+                <a href="#" target="_blank">
+
+                    <img class="img-fluid banner-click"
+                         src="/images/banner.jpg"
+                         alt="Banner Adenergy">
+
+                </a>
+
+            </div>
 
         </div>
 
     </section>
 
-    <!-- SERVICES -->
+    <!-- FOOTER -->
+    <div id="footer"></div>
 
-    <section class="services">
+</div>
 
-        <div class="card">
+<!-- JS LIBS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
-            <h3>Infraestructura TI</h3>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
-            <p>
-                Administración de redes, servidores y seguridad empresarial.
-            </p>
+<!-- JS -->
+<script src="js/scripts.js"></script>
 
-        </div>
+<!-- HEADER -->
+<script>
 
-        <div class="card">
+fetch("/header.html")
+.then(res => res.text())
+.then(data => {
+    document.getElementById("header").innerHTML = data;
+});
 
-            <h3>Soporte Técnico</h3>
+</script>
 
-            <p>
-                Centro de Atención al Usuario.
-            </p>
+<!-- FOOTER -->
+<script>
 
-        </div>
+fetch("/footer.html")
+.then(res => res.text())
+.then(data => {
+    document.getElementById("footer").innerHTML = data;
+});
 
-        <div class="card">
+</script>
 
-            <h3>Reservación de Salas</h3>
+<!-- SCROLL NAV -->
+<script>
 
-            <p>
-                Integración con Teams y dispositivos inteligentes.
-            </p>
+window.addEventListener("scroll", function() {
 
-        </div>
+    const nav = document.querySelector(".custom-navbar");
 
-    </section>
+    if (!nav) return;
 
-    <footer>
-        © 2026 Portal Empresarial | Todos los derechos reservados
-    </footer>
+    nav.classList.toggle("scrolled", window.scrollY > 50);
 
-    <script src="scripts.js"></script>
+});
+
+</script>
 
 </body>
 </html>
