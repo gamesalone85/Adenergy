@@ -11,6 +11,7 @@
 
     <!-- Icons -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
     <!-- Swiper -->
@@ -18,7 +19,8 @@
 
     <!-- CSS -->
     <link href="css/styles.css" rel="stylesheet">
-    <link href="header.css" rel="stylesheet">
+    <link href="css/header.css" rel="stylesheet">
+    <link href="css/footer.css" rel="stylesheet">
 
 </head>
 
@@ -30,10 +32,151 @@
 
 <div class="main-content">
 
-    <!-- HEADER -->
-    <div id="header"></div>
+    <!-- =======================================================
+         HEADER
+    ======================================================== -->
 
-    <!-- HERO -->
+    <header class="custom-navbar">
+
+        <!-- TOPBAR -->
+        <div class="topbar">
+
+            <div class="container-fluid topbar-container">
+
+                <div class="topbar-left">
+
+                    <i class="fa-solid fa-building"></i>
+
+                    <span>
+                        Adenergy Newsroom
+                    </span>
+
+                </div>
+
+                <div class="topbar-right">
+
+                    <a href="#">
+                        <i class="fa-solid fa-headset"></i>
+                        Soporte
+                    </a>
+
+                    <a href="#">
+                        <i class="fa-solid fa-envelope"></i>
+                        Contacto
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- NAVBAR -->
+        <nav class="navbar navbar-expand-lg navbar-dark">
+
+            <div class="container">
+
+                <!-- LOGO -->
+                <a class="navbar-brand d-flex align-items-center gap-3" href="/">
+
+                    <div class="logo-box"></div>
+
+                    <div>
+
+                        <span class="logo-title">
+                            ADENERGY
+                        </span>
+
+                        <small class="logo-subtitle">
+                            NEWSROOM
+                        </small>
+
+                    </div>
+
+                </a>
+
+                <!-- MOBILE BUTTON -->
+                <button class="navbar-toggler"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#navbarNav">
+
+                    <span class="navbar-toggler-icon"></span>
+
+                </button>
+
+                <!-- MENU -->
+                <div class="collapse navbar-collapse" id="navbarNav">
+
+                    <ul class="navbar-nav ms-auto align-items-lg-center">
+
+                        <li class="nav-item">
+
+                            <a class="nav-link active" href="#">
+                                Inicio
+                            </a>
+
+                        </li>
+
+                        <li class="nav-item">
+
+                            <a class="nav-link" href="#">
+                                Servicios
+                            </a>
+
+                        </li>
+
+                        <li class="nav-item">
+
+                            <a class="nav-link" href="#">
+                                TechRoom
+                            </a>
+
+                        </li>
+
+                        <li class="nav-item">
+
+                            <a class="nav-link" href="#">
+                                Eventos
+                            </a>
+
+                        </li>
+
+                        <li class="nav-item">
+
+                            <a class="nav-link" href="#">
+                                Contacto
+                            </a>
+
+                        </li>
+
+                        <!-- BOTON -->
+                        <li class="nav-item ms-lg-3">
+
+                            <a href="#" class="support-btn">
+
+                                <i class="fa-solid fa-ticket"></i>
+
+                                Mesa de Ayuda
+
+                            </a>
+
+                        </li>
+
+                    </ul>
+
+                </div>
+
+            </div>
+
+        </nav>
+
+    </header>
+
+    <!-- =======================================================
+         HERO
+    ======================================================== -->
+
     <section class="hero">
 
         <div class="container text-center">
@@ -47,8 +190,10 @@
             </p>
 
             <p class="description">
+
                 Plataforma corporativa adaptable para todos los dispositivos,
                 diseñada para compartir noticias, eventos y soluciones empresariales.
+
             </p>
 
             <div class="hero-buttons">
@@ -67,7 +212,10 @@
 
     </section>
 
-    <!-- CARRUSEL -->
+    <!-- =======================================================
+         SWIPER
+    ======================================================== -->
+
     <section class="swiper-section">
 
         <div class="swiper mySwiper">
@@ -96,24 +244,28 @@
 
             </div>
 
-            <!-- Flechas -->
+            <!-- FLECHAS -->
             <div class="swiper-button-next"></div>
             <div class="swiper-button-prev"></div>
 
-            <!-- Pagination -->
+            <!-- PAGINATION -->
             <div class="swiper-pagination"></div>
 
         </div>
 
     </section>
 
-    <!-- SERVICIOS -->
+    <!-- =======================================================
+         SERVICIOS
+    ======================================================== -->
+
     <section class="services-section">
 
         <div class="container">
 
             <div class="row g-4">
 
+                <!-- CARD -->
                 <div class="col-lg-4 col-md-6">
 
                     <div class="service-card">
@@ -125,14 +277,17 @@
                         </h3>
 
                         <p>
+
                             Administración de redes, servidores,
                             seguridad y monitoreo empresarial.
+
                         </p>
 
                     </div>
 
                 </div>
 
+                <!-- CARD -->
                 <div class="col-lg-4 col-md-6">
 
                     <div class="service-card">
@@ -144,14 +299,17 @@
                         </h3>
 
                         <p>
+
                             Centro de atención y solución
                             de incidentes tecnológicos.
+
                         </p>
 
                     </div>
 
                 </div>
 
+                <!-- CARD -->
                 <div class="col-lg-4 col-md-6">
 
                     <div class="service-card">
@@ -163,8 +321,10 @@
                         </h3>
 
                         <p>
+
                             Integración con Teams,
                             Zoom y dispositivos inteligentes.
+
                         </p>
 
                     </div>
@@ -177,7 +337,10 @@
 
     </section>
 
-    <!-- ABOUT -->
+    <!-- =======================================================
+         ABOUT
+    ======================================================== -->
+
     <section class="about-section text-center" id="about">
 
         <div class="container px-4 px-lg-5">
@@ -186,11 +349,11 @@
 
                 <div class="col-lg-8">
 
-                    <h2 class="text-white mb-4">
+                    <h2 class="mb-4">
                         ¿Qué es Adenergy Newsroom?
                     </h2>
 
-                    <p class="text-white-50">
+                    <p>
 
                         Adenergy Newsroom es una plataforma empresarial diseñada
                         para centralizar información corporativa, eventos,
@@ -224,40 +387,188 @@
 
     </section>
 
-    <!-- FOOTER -->
-    <div id="footer"></div>
+    <!-- =======================================================
+         FOOTER
+    ======================================================== -->
+
+    <footer class="custom-footer">
+
+        <div class="container">
+
+            <div class="row gy-5">
+
+                <!-- BRAND -->
+                <div class="col-lg-4">
+
+                    <div class="footer-brand">
+
+                        <div class="footer-logo"></div>
+
+                        <h2>
+                            ADENERGY
+                        </h2>
+
+                        <p>
+
+                            Plataforma corporativa enfocada en tecnología,
+                            comunicación empresarial y soluciones digitales.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <!-- LINKS -->
+                <div class="col-lg-2 col-md-6">
+
+                    <h5>
+                        Navegación
+                    </h5>
+
+                    <ul class="footer-links">
+
+                        <li>
+                            <a href="#">
+                                Inicio
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#">
+                                Servicios
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#">
+                                Eventos
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#">
+                                Contacto
+                            </a>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+                <!-- RECURSOS -->
+                <div class="col-lg-3 col-md-6">
+
+                    <h5>
+                        Recursos
+                    </h5>
+
+                    <ul class="footer-links">
+
+                        <li>
+                            <a href="#">
+                                Mesa de Ayuda
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#">
+                                Teams Rooms
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#">
+                                TechRoom
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#">
+                                Políticas TI
+                            </a>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+                <!-- CONTACT -->
+                <div class="col-lg-3">
+
+                    <h5>
+                        Contacto
+                    </h5>
+
+                    <div class="footer-contact">
+
+                        <p>
+                            <i class="fa-solid fa-location-dot"></i>
+                            Ciudad de México
+                        </p>
+
+                        <p>
+                            <i class="fa-solid fa-envelope"></i>
+                            soporte@adenergy.com
+                        </p>
+
+                        <p>
+                            <i class="fa-solid fa-phone"></i>
+                            +52 55 0000 0000
+                        </p>
+
+                    </div>
+
+                    <!-- SOCIAL -->
+                    <div class="social-icons">
+
+                        <a href="#">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+
+                        <a href="#">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+
+                        <a href="#">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+
+                        <a href="#">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- COPYRIGHT -->
+            <div class="footer-bottom">
+
+                <p>
+                    © 2026 Adenergy Newsroom | Todos los derechos reservados
+                </p>
+
+            </div>
+
+        </div>
+
+    </footer>
 
 </div>
 
-<!-- JS LIBS -->
+<!-- =======================================================
+     JS LIBS
+======================================================= -->
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
 <!-- JS -->
 <script src="js/scripts.js"></script>
-
-<!-- HEADER -->
-<script>
-
-fetch("/header.html")
-.then(res => res.text())
-.then(data => {
-    document.getElementById("header").innerHTML = data;
-});
-
-</script>
-
-<!-- FOOTER -->
-<script>
-
-fetch("/footer.html")
-.then(res => res.text())
-.then(data => {
-    document.getElementById("footer").innerHTML = data;
-});
-
-</script>
 
 <!-- SCROLL NAV -->
 <script>
