@@ -505,3 +505,115 @@ function generarMetricas() {
 }
 
 generarMetricas();
+// ===============================
+// EXPORTAR A EXCEL
+// ===============================
+
+const anioExport =
+    document.getElementById("anioExport");
+
+// LLENAR AÑOS
+
+const currentYear =
+    new Date().getFullYear();
+
+for(let i = currentYear - 5; i <= currentYear + 1; i++){
+
+    anioExport.innerHTML += `
+
+        <option value="${i}"
+            ${i === currentYear ? "selected" : ""}>
+
+            ${i}
+
+        </option>
+
+    `;
+}
+
+// MES ACTUAL POR DEFAULT
+
+document.getElementById("mesExport").value =
+    new Date().getMonth();
+
+function exportarExcel(){
+
+    const mes =
+        parseInt(
+            document.getElementById("mesExport").value
+        );
+
+    const anio =
+        parseInt(
+            document.getElementById("anioExport").value
+        );
+
+    // FILTRAR TICKETS
+
+    const ticketsFiltrados =
+        tickets.filter(ticket => {
+
+            if(!ticket.fechaCreacion)
+                return false;
+
+            const fecha =
+                new Date(ticket.fechaCreacion);
+
+            return fecha.getMonth() === mes &&
+                   fecha.getFullYear() === anio;
+        });
+
+    // VALIDAR
+
+    if(ticketsFiltrados.length === 0){
+
+        alert(
+            "No hay tickets para exportar en ese periodo."
+        );
+
+        return;
+    }
+
+    // FORMATO EXCEL
+
+    const data = ticketsFiltrados.map(ticket => ({
+
+        Ticket: ticket.ticket,
+        Usuario: ticket.usuario,
+        Fecha: ticket.fecha,
+        Division: ticket.division,
+        Categoria: ticket.categoria,
+        Prioridad: ticket.prioridad,
+        Estado: ticket.estado,
+        Contacto: ticket.contacto || "",
+        Equipo: ticket.equipo || "",
+        Descripcion: ticket.descripcion || ""
+
+    }));
+
+    // CREAR EXCEL
+
+    const worksheet =
+        XLSX.utils.json_to_sheet(data);
+
+    const workbook =
+        XLSX.utils.book_new();
+
+    XLSX.utils.book_append_sheet(
+        workbook,
+        worksheet,
+        "Tickets"
+    );
+
+    // NOMBRE ARCHIVO
+
+    const nombreArchivo =
+        `Tickets_${anio}_${mes + 1}.xlsx`;
+
+    // DESCARGAR
+
+    XLSX.writeFile(
+        workbook,
+        nombreArchivo
+    );
+}
