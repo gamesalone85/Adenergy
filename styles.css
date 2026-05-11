@@ -481,3 +481,19 @@ section{
         padding:35px 25px;
     }
 }
+
+.service-card{
+
+    transition:.3s;
+    cursor:pointer;
+}
+
+.service-card:hover{
+
+    transform:translateY(-5px);
+}
+
+a .service-card{
+
+    color:inherit;
+}
