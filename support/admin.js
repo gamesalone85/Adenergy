@@ -65,15 +65,15 @@ function renderTickets(data = tickets) {
 
                 <td>
 
-                    <button
-                        class="btn btn-link text-decoration-none fw-bold"
-                        onclick="window.irTicket('${ticket.ticket}')"
+    <button
+        class="btn btn-link text-decoration-none fw-bold"
+        onclick="window.irTicket('${ticket.ticket}')">
 
-                        ${ticket.ticket}
+        ${ticket.ticket}
 
-                    </button>
+    </button>
 
-                </td>
+</td>
 
                 <td>${ticket.usuario}</td>
 
