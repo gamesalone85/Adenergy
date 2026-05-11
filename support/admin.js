@@ -56,7 +56,15 @@ function renderTickets(data = tickets) {
             <tr>
 
                 <td>
-                    <strong>${ticket.ticket}</strong>
+
+                    <button
+                        class="btn btn-link text-decoration-none fw-bold"
+                        onclick="window.abrirTicket(${tickets.length - 1 - index})">
+
+                        ${ticket.ticket}
+
+                    </button>
+
                 </td>
 
                 <td>${ticket.usuario}</td>
@@ -70,7 +78,9 @@ function renderTickets(data = tickets) {
                 <td>
 
                     <span class="badge bg-danger">
+
                         ${ticket.prioridad}
+
                     </span>
 
                 </td>
@@ -89,7 +99,7 @@ function renderTickets(data = tickets) {
 
                     <select
                         class="form-select"
-                        onchange="cambiarEstado(${tickets.length - 1 - index}, this.value)">
+                        onchange="window.cambiarEstado(${tickets.length - 1 - index}, this.value)">
 
                         <option
                             value="Abierto"
@@ -147,6 +157,147 @@ function cambiarEstado(index, nuevoEstado) {
     renderTickets();
 }
 
+function abrirTicket(index) {
+
+    const ticket = tickets[index];
+
+    // CAMBIAR AUTOMÁTICAMENTE A EN PROCESO
+
+    if (ticket.estado === "Abierto") {
+
+        ticket.estado = "En Proceso";
+
+        localStorage.setItem(
+            "tickets",
+            JSON.stringify(tickets)
+        );
+
+        renderTickets();
+    }
+
+    document.getElementById("modalTicket").innerHTML = `
+
+        <div class="row g-4">
+
+            <div class="col-md-6">
+
+                <label class="fw-bold">
+                    Ticket
+                </label>
+
+                <div class="ticket-box">
+                    ${ticket.ticket}
+                </div>
+
+            </div>
+
+            <div class="col-md-6">
+
+                <label class="fw-bold">
+                    Estado
+                </label>
+
+                <div class="ticket-box">
+                    ${ticket.estado}
+                </div>
+
+            </div>
+
+            <div class="col-md-6">
+
+                <label class="fw-bold">
+                    Usuario
+                </label>
+
+                <div class="ticket-box">
+                    ${ticket.usuario}
+                </div>
+
+            </div>
+
+            <div class="col-md-6">
+
+                <label class="fw-bold">
+                    División
+                </label>
+
+                <div class="ticket-box">
+                    ${ticket.division}
+                </div>
+
+            </div>
+
+            <div class="col-md-6">
+
+                <label class="fw-bold">
+                    Categoría
+                </label>
+
+                <div class="ticket-box">
+                    ${ticket.categoria}
+                </div>
+
+            </div>
+
+            <div class="col-md-6">
+
+                <label class="fw-bold">
+                    Prioridad
+                </label>
+
+                <div class="ticket-box">
+                    ${ticket.prioridad}
+                </div>
+
+            </div>
+
+            <div class="col-md-6">
+
+                <label class="fw-bold">
+                    Equipo
+                </label>
+
+                <div class="ticket-box">
+                    ${ticket.equipo || "No especificado"}
+                </div>
+
+            </div>
+
+            <div class="col-md-6">
+
+                <label class="fw-bold">
+                    Contacto
+                </label>
+
+                <div class="ticket-box">
+                    ${ticket.contacto || "No especificado"}
+                </div>
+
+            </div>
+
+            <div class="col-12">
+
+                <label class="fw-bold">
+                    Descripción
+                </label>
+
+                <div class="ticket-box description-box">
+                    ${ticket.descripcion}
+                </div>
+
+            </div>
+
+        </div>
+
+    `;
+
+    const modal = new bootstrap.Modal(
+        document.getElementById("ticketModal")
+    );
+
+    modal.show();
+}
+
 searchInput.addEventListener("keyup", function() {
 
     const value = this.value.toLowerCase();
@@ -163,3 +314,6 @@ searchInput.addEventListener("keyup", function() {
 });
 
 renderTickets();
+
+window.abrirTicket = abrirTicket;
+window.cambiarEstado = cambiarEstado;
