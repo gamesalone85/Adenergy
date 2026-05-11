@@ -4,6 +4,31 @@ const table = document.getElementById("ticketsTable");
 const fecha = document.getElementById("fecha");
 const ticket = document.getElementById("ticket");
 
+/* =========================================
+   RECIBIR DATOS DE IA
+========================================= */
+
+const ticketIA =
+    JSON.parse(localStorage.getItem("ticketIA"));
+
+if(ticketIA){
+
+    // AUTOLLENAR
+
+    document.getElementById("categoria").value =
+        ticketIA.categoria;
+
+    document.getElementById("prioridad").value =
+        ticketIA.prioridad;
+
+    document.getElementById("descripcion").value =
+        ticketIA.descripcion;
+
+    // ELIMINAR CACHE
+
+    localStorage.removeItem("ticketIA");
+}
+
 // FECHA AUTOMÁTICA
 
 const hoy = new Date();
