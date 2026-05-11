@@ -1,3 +1,11 @@
+const sesion =
+    JSON.parse(localStorage.getItem("sesionActiva"));
+
+if(!sesion){
+
+    window.location.href =
+        "login.html";
+}
 const table = document.getElementById("ticketsTable");
 
 const totalTickets = document.getElementById("totalTickets");
