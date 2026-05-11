@@ -1,59 +1,93 @@
-const fecha = document.getElementById("fecha");
-const ticket = document.getElementById("ticket");
 const form = document.getElementById("ticketForm");
 const table = document.getElementById("ticketsTable");
 
-let tickets = JSON.parse(localStorage.getItem("tickets")) || [];
+const fecha = document.getElementById("fecha");
+const ticket = document.getElementById("ticket");
 
-function generarNumeroTicket() {
+// FECHA AUTOMÁTICA
 
-    return tickets.length + 1;
+const hoy = new Date();
 
+fecha.value =
+    hoy.toLocaleDateString("es-MX") +
+    " " +
+    hoy.toLocaleTimeString("es-MX");
+
+// OBTENER TICKETS
+
+let tickets =
+    JSON.parse(localStorage.getItem("tickets")) || [];
+
+// GENERAR CONSECUTIVO
+
+function generarTicket() {
+
+    const numero = tickets.length + 1;
+
+    return `TKT-${numero.toString().padStart(5, "0")}`;
 }
 
-function actualizarDatos() {
+ticket.value = generarTicket();
 
-    const now = new Date();
-
-    fecha.value = now.toLocaleString("es-MX");
-
-    ticket.value =
-        "TKT-" +
-        String(generarNumeroTicket()).padStart(5, "0");
-
-}
+// MOSTRAR TICKETS
 
 function renderTickets() {
 
     table.innerHTML = "";
 
-    tickets.reverse().forEach(t => {
+    tickets.slice().reverse().forEach(ticket => {
 
         table.innerHTML += `
+
             <tr>
 
-                <td>${t.ticket}</td>
-                <td>${t.usuario}</td>
-                <td>${t.fecha}</td>
-                <td>${t.division}</td>
-                <td>${t.categoria}</td>
-                <td>${t.prioridad}</td>
+                <td>
+                    ${ticket.ticket}
+                </td>
 
                 <td>
-                    <span class="estado">
-                        Abierto
+                    ${ticket.usuario}
+                </td>
+
+                <td>
+                    ${ticket.fecha}
+                </td>
+
+                <td>
+                    ${ticket.division}
+                </td>
+
+                <td>
+                    ${ticket.categoria}
+                </td>
+
+                <td>
+
+                    <span class="badge bg-danger">
+
+                        ${ticket.prioridad}
+
                     </span>
+
+                </td>
+
+                <td>
+
+                    <span class="badge bg-warning text-dark">
+
+                        ${ticket.estado}
+
+                    </span>
+
                 </td>
 
             </tr>
+
         `;
-
     });
-
 }
 
-actualizarDatos();
-renderTickets();
+// REGISTRAR TICKET
 
 form.addEventListener("submit", function(e){
 
@@ -62,15 +96,31 @@ form.addEventListener("submit", function(e){
     const nuevoTicket = {
 
         ticket: ticket.value,
-        fecha: fecha.value,
-        usuario: document.getElementById("usuario").value,
-        division: document.getElementById("division").value,
-        categoria: document.getElementById("categoria").value,
-        prioridad: document.getElementById("prioridad").value,
-        contacto: document.getElementById("contacto").value,
-        equipo: document.getElementById("equipo").value,
-        descripcion: document.getElementById("descripcion").value
 
+        fecha: fecha.value,
+
+        usuario:
+            document.getElementById("usuario").value,
+
+        division:
+            document.getElementById("division").value,
+
+        categoria:
+            document.getElementById("categoria").value,
+
+        prioridad:
+            document.getElementById("prioridad").value,
+
+        contacto:
+            document.getElementById("contacto").value,
+
+        equipo:
+            document.getElementById("equipo").value,
+
+        descripcion:
+            document.getElementById("descripcion").value,
+
+        estado: "Abierto"
     };
 
     tickets.push(nuevoTicket);
@@ -80,9 +130,24 @@ form.addEventListener("submit", function(e){
         JSON.stringify(tickets)
     );
 
-    form.reset();
-
-    actualizarDatos();
     renderTickets();
 
+    form.reset();
+
+    // NUEVA FECHA
+
+    const nuevoHoy = new Date();
+
+    fecha.value =
+        nuevoHoy.toLocaleDateString("es-MX") +
+        " " +
+        nuevoHoy.toLocaleTimeString("es-MX");
+
+    // NUEVO CONSECUTIVO
+
+    ticket.value = generarTicket();
+
+    alert("Ticket registrado correctamente");
 });
+
+renderTickets();
