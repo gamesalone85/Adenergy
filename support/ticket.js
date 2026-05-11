@@ -1,3 +1,12 @@
+const sesion =
+    JSON.parse(localStorage.getItem("sesionActiva"));
+
+if(!sesion){
+
+    window.location.href =
+        "login.html";
+}
+
 const params =
     new URLSearchParams(window.location.search);
 
