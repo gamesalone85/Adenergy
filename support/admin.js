@@ -59,7 +59,7 @@ function renderTickets(data = tickets) {
 
                     <button
                         class="btn btn-link text-decoration-none fw-bold"
-                        onclick="window.abrirTicket(${tickets.length - 1 - index})">
+                        onclick="window.irTicket('${ticket.ticket}')"
 
                         ${ticket.ticket}
 
@@ -317,3 +317,10 @@ renderTickets();
 
 window.abrirTicket = abrirTicket;
 window.cambiarEstado = cambiarEstado;
+function irTicket(numeroTicket){
+
+    window.location.href =
+        `ticket.html?id=${numeroTicket}`;
+}
+
+window.irTicket = irTicket;
