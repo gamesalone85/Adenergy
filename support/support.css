@@ -27,5 +27,19 @@ body{
     padding:6px 12px;
     border-radius:20px;
     font-size:13px;
+    
+.ticket-box{
+
+    background:#f4f6f9;
+    padding:14px;
+    border-radius:12px;
+    margin-top:8px;
+    border:1px solid #dee2e6;
+}
+
+.description-box{
+
+    min-height:140px;
+}
     font-weight:600;
 }
