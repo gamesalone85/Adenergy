@@ -332,3 +332,176 @@ function irTicket(numeroTicket){
 }
 
 window.irTicket = irTicket;
+
+// =============================
+// CHARTS
+// =============================
+
+function generarMetricas() {
+
+    // TICKETS POR MES
+
+    const meses = [
+        "Ene","Feb","Mar","Abr","May","Jun",
+        "Jul","Ago","Sep","Oct","Nov","Dic"
+    ];
+
+    let ticketsMes = new Array(12).fill(0);
+
+    tickets.forEach(ticket => {
+
+        if(!ticket.fecha) return;
+
+        const fecha = new Date(ticket.fecha);
+
+        const mes = fecha.getMonth();
+
+        ticketsMes[mes]++;
+    });
+
+    // CHART TICKETS
+
+    const ctx1 =
+        document.getElementById("ticketsChart");
+
+    new Chart(ctx1, {
+
+        type: "bar",
+
+        data: {
+
+            labels: meses,
+
+            datasets: [{
+
+                label: "Tickets",
+
+                data: ticketsMes,
+
+                borderWidth: 2
+
+            }]
+        },
+
+        options: {
+
+            responsive: true,
+
+            plugins: {
+
+                legend: {
+                    display: false
+                }
+            }
+        }
+    });
+
+    // TOP CATEGORIAS
+
+    let categorias = {};
+
+    tickets.forEach(ticket => {
+
+        if(!categorias[ticket.categoria]){
+
+            categorias[ticket.categoria] = 0;
+        }
+
+        categorias[ticket.categoria]++;
+    });
+
+    const ctx2 =
+        document.getElementById("categoriasChart");
+
+    new Chart(ctx2, {
+
+        type: "doughnut",
+
+        data: {
+
+            labels: Object.keys(categorias),
+
+            datasets: [{
+
+                data: Object.values(categorias)
+
+            }]
+        },
+
+        options: {
+
+            responsive: true
+        }
+    });
+
+    // SLA 45 MIN
+
+    const ahora = new Date();
+
+    let vencidos = 0;
+
+    tickets.forEach(ticket => {
+
+        if(ticket.estado === "Cerrado")
+            return;
+
+        if(!ticket.fecha)
+            return;
+
+        const fechaTicket =
+            new Date(ticket.fecha);
+
+        const diferencia =
+            (ahora - fechaTicket) / 1000 / 60;
+
+        if(diferencia > 45){
+
+            vencidos++;
+        }
+    });
+
+    document.getElementById("sla45")
+        .textContent = vencidos;
+
+    // CRITICOS
+
+    const criticos =
+        tickets.filter(t =>
+            t.prioridad === "Crítica"
+        ).length;
+
+    document.getElementById("criticos")
+        .textContent = criticos;
+
+    // PROMEDIO
+
+    let totalMin = 0;
+
+    let contador = 0;
+
+    tickets.forEach(ticket => {
+
+        if(!ticket.fecha)
+            return;
+
+        const fecha =
+            new Date(ticket.fecha);
+
+        const diferencia =
+            (ahora - fecha) / 1000 / 60;
+
+        totalMin += diferencia;
+
+        contador++;
+    });
+
+    const promedio =
+        contador > 0
+        ? Math.round(totalMin / contador)
+        : 0;
+
+    document.getElementById("promedioTiempo")
+        .textContent = promedio + " min";
+}
+
+generarMetricas();
