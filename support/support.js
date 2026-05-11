@@ -61,17 +61,19 @@ form.addEventListener("submit", function(e){
 
     const nuevoTicket = {
 
-        ticket: ticket.value,
-        fecha: fecha.value,
-        usuario: document.getElementById("usuario").value,
-        division: document.getElementById("division").value,
-        categoria: document.getElementById("categoria").value,
-        prioridad: document.getElementById("prioridad").value,
-        contacto: document.getElementById("contacto").value,
-        equipo: document.getElementById("equipo").value,
-        descripcion: document.getElementById("descripcion").value
+    ticket: ticket.value,
+    fecha: fecha.value,
+    usuario: document.getElementById("usuario").value,
+    division: document.getElementById("division").value,
+    categoria: document.getElementById("categoria").value,
+    prioridad: document.getElementById("prioridad").value,
+    contacto: document.getElementById("contacto").value,
+    equipo: document.getElementById("equipo").value,
+    descripcion: document.getElementById("descripcion").value,
 
-    };
+    estado: "Abierto"
+
+};
 
     tickets.push(nuevoTicket);
 
