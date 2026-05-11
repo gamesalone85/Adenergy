@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Panel de Tickets | Adenergy</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="support.css">
+
+</head>
+
+<body>
+
+<div class="container py-5">
+
+    <!-- HEADER -->
+    <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-3">
+
+        <div>
+
+            <h1 class="fw-bold">
+                <i class="bi bi-kanban-fill"></i>
+                Panel de Tickets
+            </h1>
+
+            <p class="text-muted mb-0">
+                Administración y seguimiento de incidencias
+            </p>
+
+        </div>
+
+        <a href="../index.html" class="btn btn-dark">
+
+            <i class="bi bi-house-fill"></i>
+
+            Volver al Inicio
+
+        </a>
+
+    </div>
+
+    <!-- KPIS -->
+    <div class="row g-4 mb-4">
+
+        <div class="col-md-3">
+
+            <div class="card shadow border-0 rounded-4">
+
+                <div class="card-body">
+
+                    <h6 class="text-muted">
+                        Tickets Totales
+                    </h6>
+
+                    <h2 id="totalTickets">
+                        0
+                    </h2>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="col-md-3">
+
+            <div class="card shadow border-0 rounded-4">
+
+                <div class="card-body">
+
+                    <h6 class="text-muted">
+                        Abiertos
+                    </h6>
+
+                    <h2 id="abiertos">
+                        0
+                    </h2>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="col-md-3">
+
+            <div class="card shadow border-0 rounded-4">
+
+                <div class="card-body">
+
+                    <h6 class="text-muted">
+                        En Proceso
+                    </h6>
+
+                    <h2 id="proceso">
+                        0
+                    </h2>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="col-md-3">
+
+            <div class="card shadow border-0 rounded-4">
+
+                <div class="card-body">
+
+                    <h6 class="text-muted">
+                        Cerrados
+                    </h6>
+
+                    <h2 id="cerrados">
+                        0
+                    </h2>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- TABLA -->
+    <div class="card shadow-lg border-0 rounded-4">
+
+        <div class="card-body p-4">
+
+            <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-3">
+
+                <h4 class="mb-0">
+                    Tickets Registrados
+                </h4>
+
+                <input type="text"
+                       id="searchInput"
+                       class="form-control w-auto"
+                       placeholder="Buscar ticket...">
+
+            </div>
+
+            <div class="table-responsive">
+
+                <table class="table table-hover align-middle">
+
+                    <thead class="table-dark">
+
+                        <tr>
+
+                            <th>Ticket</th>
+                            <th>Usuario</th>
+                            <th>Fecha</th>
+                            <th>División</th>
+                            <th>Categoría</th>
+                            <th>Prioridad</th>
+                            <th>Estado</th>
+                            <th>Gestión</th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody id="ticketsTable"></tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script src="admin.js"></script>
+
+</body>
+</html>
