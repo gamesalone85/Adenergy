@@ -24,6 +24,77 @@
 
 </head>
 
+<!-- =========================================
+     ASISTENTE VIRTUAL IA
+========================================= -->
+
+<!-- BOTON FLOTANTE -->
+
+<div class="ai-button"
+     onclick="toggleAssistant()">
+
+    <i class="fa-solid fa-robot"></i>
+
+</div>
+
+<!-- CHAT -->
+
+<div class="ai-chat"
+     id="aiChat">
+
+    <div class="ai-header">
+
+        <div>
+
+            <strong>
+                Adenergy Assistant
+            </strong>
+
+            <small>
+                Soporte Inteligente
+            </small>
+
+        </div>
+
+        <button onclick="toggleAssistant()">
+
+            <i class="fa-solid fa-xmark"></i>
+
+        </button>
+
+    </div>
+
+    <div class="ai-body">
+
+        <p class="mb-3">
+
+            👋 Hola, describe tu problema técnico.
+
+        </p>
+
+        <textarea
+            id="aiInput"
+            class="form-control mb-3"
+            rows="4"
+            placeholder="Ejemplo: No puedo conectarme al VPN"></textarea>
+
+        <button
+            class="btn btn-primary w-100"
+            onclick="procesarIA()">
+
+            <i class="fa-solid fa-wand-magic-sparkles"></i>
+
+            Analizar Problema
+
+        </button>
+
+        <div id="aiResponse"
+             class="mt-4"></div>
+
+    </div>
+
+</div>
+
 <body>
 
 <!-- FONDO -->
