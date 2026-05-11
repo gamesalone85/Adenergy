@@ -140,7 +140,68 @@
 
     </div>
 
+<!-- EXPORTAR -->
+<div class="card shadow-lg border-0 rounded-4 mb-4">
 
+    <div class="card-body p-4">
+
+        <div class="d-flex justify-content-between align-items-center flex-wrap gap-3">
+
+            <div>
+
+                <h4 class="mb-1">
+                    Exportación de Tickets
+                </h4>
+
+                <p class="text-muted mb-0">
+                    Descarga reportes mensuales en Excel
+                </p>
+
+            </div>
+
+            <div class="d-flex gap-2 flex-wrap">
+
+                <select id="mesExport"
+                        class="form-select">
+
+                    <option value="0">Enero</option>
+                    <option value="1">Febrero</option>
+                    <option value="2">Marzo</option>
+                    <option value="3">Abril</option>
+                    <option value="4">Mayo</option>
+                    <option value="5">Junio</option>
+                    <option value="6">Julio</option>
+                    <option value="7">Agosto</option>
+                    <option value="8">Septiembre</option>
+                    <option value="9">Octubre</option>
+                    <option value="10">Noviembre</option>
+                    <option value="11">Diciembre</option>
+
+                </select>
+
+                <select id="anioExport"
+                        class="form-select">
+
+                </select>
+
+                <button class="btn btn-success"
+                        onclick="exportarExcel()">
+
+                    <i class="bi bi-file-earmark-excel-fill"></i>
+
+                    Exportar Excel
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+    
     <!-- DASHBOARD KPI -->
 
 <div class="row g-4 mb-4">
