@@ -6,16 +6,16 @@
 :root{
 
     /* COLORES */
-    --primary-red:#d71920;
-    --primary-blue:#0b3b78;
-    --secondary-blue:#144f9c;
+    --primary-gray:#54565a;
+    --primary-red:#c8102e;
+    --secondary-white:#ffffff;
 
-    --cream:#f6f1e7;
+    --white:#ffffff;
     --cream-soft:#fffaf1;
 
     --white:#ffffff;
     --text-dark:#1d2939;
-    --text-gray:#5b6470;
+    --text-gray:#54565a;
 
     --shadow:0 10px 30px rgba(0,0,0,.12);
 
