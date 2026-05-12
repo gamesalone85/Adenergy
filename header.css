@@ -93,3 +93,24 @@
 .support-admin:hover{
     background: #a10d24;
 }
+
+/* ======================================================
+  (MENU MOBILE)
+====================================================== */
+
+/* Botón hamburguesa borde */
+.navbar-toggler{
+    border: 1px solid #c8102e;
+    padding: 6px 10px;
+    border-radius: 8px;
+}
+
+/* ICONO HAMBURGUESA EN ROJO CORPORATIVO */
+.navbar-toggler-icon{
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%23c8102e' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+/* EFECTO HOVER DEL BOTÓN */
+.navbar-toggler:hover{
+    background: rgba(200,16,46,0.08);
+}
