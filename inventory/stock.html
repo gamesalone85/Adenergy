@@ -4,9 +4,22 @@
 
 <meta charset="UTF-8">
 
-<title>Stock TI</title>
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
 
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<title>Stock TI | Adenergy</title>
+
+<!-- Bootstrap -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet">
+
+<!-- Bootstrap Icons -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
+      rel="stylesheet">
+
+<!-- INVENTORY CSS -->
+<link rel="stylesheet"
+      href="inventory.css">
 
 </head>
 
@@ -14,70 +27,173 @@
 
 <div class="container py-5">
 
-<h1 class="mb-4">
-Stock Refacciones
-</h1>
+    <!-- HEADER -->
+    <div class="inventory-header">
 
-<div class="card shadow-lg mb-4">
+        <div class="d-flex justify-content-between align-items-center flex-wrap gap-4">
 
-<div class="card-body">
+            <div>
 
-<form id="stockForm">
+                <h1>
 
-<div class="row g-3">
+                    <i class="bi bi-box-seam-fill"></i>
 
-<div class="col-md-4">
+                    Stock TI
 
-<input type="text"
-       id="pieza"
-       class="form-control"
-       placeholder="Pieza">
+                </h1>
 
-</div>
+                <p>
 
-<div class="col-md-4">
+                    Control y administración de refacciones tecnológicas
 
-<input type="number"
-       id="cantidad"
-       class="form-control"
-       placeholder="Cantidad">
+                </p>
 
-</div>
+            </div>
 
-<div class="col-md-4">
+            <!-- BOTONES -->
+            <div class="d-flex gap-2 flex-wrap justify-content-end">
 
-<button class="btn btn-primary w-100">
+                <a href="index.html"
+                   class="btn btn-dark">
 
-Guardar
+                    <i class="bi bi-arrow-left"></i>
 
-</button>
+                    Volver Inventario
 
-</div>
+                </a>
 
-</div>
+                <a href="../support/admin.html"
+                   class="btn btn-success">
 
-</form>
+                    <i class="bi bi-house-fill"></i>
 
-</div>
+                    Panel Tickets
 
-</div>
+                </a>
 
-<table class="table table-hover">
+            </div>
 
-<thead class="table-dark">
+        </div>
 
-<tr>
+    </div>
 
-<th>Pieza</th>
-<th>Cantidad</th>
+    <!-- FORM -->
+    <div class="card shadow-lg mb-4">
 
-</tr>
+        <div class="card-body p-4">
 
-</thead>
+            <h4 class="mb-4">
 
-<tbody id="stockTable"></tbody>
+                Registrar Refacción
 
-</table>
+            </h4>
+
+            <form id="stockForm">
+
+                <div class="row g-4">
+
+                    <!-- PIEZA -->
+                    <div class="col-md-5">
+
+                        <label class="form-label">
+
+                            Pieza / Refacción
+
+                        </label>
+
+                        <input type="text"
+                               id="pieza"
+                               class="form-control"
+                               placeholder="Ejemplo: SSD Kingston 1TB">
+
+                    </div>
+
+                    <!-- CANTIDAD -->
+                    <div class="col-md-4">
+
+                        <label class="form-label">
+
+                            Cantidad
+
+                        </label>
+
+                        <input type="number"
+                               id="cantidad"
+                               class="form-control"
+                               placeholder="0">
+
+                    </div>
+
+                    <!-- BOTON -->
+                    <div class="col-md-3 d-flex align-items-end">
+
+                        <button class="btn btn-primary w-100">
+
+                            <i class="bi bi-save-fill"></i>
+
+                            Guardar
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+    <!-- TABLA -->
+    <div class="card shadow-lg">
+
+        <div class="card-body p-4">
+
+            <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-3">
+
+                <h4 class="mb-0">
+
+                    Refacciones Registradas
+
+                </h4>
+
+                <input type="text"
+                       id="searchInput"
+                       class="form-control w-auto"
+                       placeholder="Buscar refacción...">
+
+            </div>
+
+            <div class="table-responsive">
+
+                <table class="table table-hover align-middle">
+
+                    <thead>
+
+                        <tr>
+
+                            <th>
+                                Pieza
+                            </th>
+
+                            <th>
+                                Cantidad
+                            </th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody id="stockTable"></tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+
+    </div>
 
 </div>
 
@@ -89,19 +205,33 @@ const stock =
 const table =
     document.getElementById("stockTable");
 
-function render(){
+function render(data = stock){
 
     table.innerHTML = "";
 
-    stock.forEach(s => {
+    data.slice().reverse().forEach(s => {
 
         table.innerHTML += `
 
             <tr>
 
-                <td>${s.pieza}</td>
+                <td>
 
-                <td>${s.cantidad}</td>
+                    <strong>
+                        ${s.pieza}
+                    </strong>
+
+                </td>
+
+                <td>
+
+                    <span class="badge-status badge-disponible">
+
+                        ${s.cantidad} piezas
+
+                    </span>
+
+                </td>
 
             </tr>
 
@@ -132,6 +262,26 @@ document.getElementById("stockForm")
     render();
 
     this.reset();
+});
+
+/* ======================================================
+   BUSQUEDA
+====================================================== */
+
+document.getElementById("searchInput")
+.addEventListener("keyup", function(){
+
+    const value =
+        this.value.toLowerCase();
+
+    const filtrados =
+        stock.filter(s =>
+
+            s.pieza.toLowerCase().includes(value)
+
+        );
+
+    render(filtrados);
 });
 
 render();
