@@ -1,34 +1,73 @@
-  <!-- =======================================================
-         HEADER
-    ======================================================== -->
+<!-- header.html -->
 
-    <header class="custom-navbar">
+<header class="custom-navbar">
 
-        <!-- TOPBAR -->
-        <div class="topbar">
+    <!-- TOPBAR -->
+    <div class="topbar">
+        <div class="container-fluid topbar-container">
 
-            <div class="container-fluid topbar-container">
+            <div class="topbar-left">
+                <i class="fa-solid fa-building"></i>
+                <span>Adenergy Newsroom</span>
+            </div>
 
-                <div class="topbar-left">
+            <div class="topbar-right">
+                <a href="#">
+                    <i class="fa-solid fa-headset"></i> Soporte
+                </a>
 
-                    <i class="fa-solid fa-building"></i>
+                <a href="#">
+                    <i class="fa-solid fa-envelope"></i> Contacto
+                </a>
+            </div>
 
-                    <span>
-                        Adenergy Newsroom
-                    </span>
+        </div>
+    </div>
 
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg navbar-dark custom-navbar-main">
+
+        <div class="container">
+
+            <!-- LOGO -->
+            <a class="navbar-brand d-flex align-items-center gap-3" href="/">
+
+                <div class="logo-box"></div>
+
+                <div>
+                    <span class="logo-title">ADENERGY</span>
+                    <small class="logo-subtitle d-block">NEWSROOM</small>
                 </div>
 
-                <div class="topbar-right">
+            </a>
 
-                    <a href="#">
-                        <i class="fa-solid fa-headset"></i>
-                        Soporte
+            <button class="navbar-toggler"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+
+                <ul class="navbar-nav ms-auto align-items-lg-center nav-links-custom">
+
+                    <li class="nav-item"><a class="nav-link active" href="#">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="servicios/index.html">Servicios</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">TechRoom</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Eventos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Contacto</a></li>
+
+                </ul>
+
+                <div class="d-flex align-items-center gap-2 ms-lg-4 mt-3 mt-lg-0 flex-wrap">
+
+                    <a href="support/index.html" class="support-btn support-help">
+                        <i class="fa-solid fa-ticket"></i> Mesa de Ayuda
                     </a>
 
-                    <a href="#">
-                        <i class="fa-solid fa-envelope"></i>
-                        Contacto
+                    <a href="support/login.html" class="support-btn support-admin">
+                        <i class="fa-solid fa-screwdriver-wrench"></i> Panel Tickets
                     </a>
 
                 </div>
@@ -37,105 +76,6 @@
 
         </div>
 
-        <!-- NAVBAR -->
-        <nav class="navbar navbar-expand-lg navbar-dark">
+    </nav>
 
-            <div class="container">
-
-                <!-- LOGO -->
-                <a class="navbar-brand d-flex align-items-center gap-3" href="/">
-
-                    <div class="logo-box"></div>
-
-                    <div>
-
-                        <span class="logo-title">
-                            ADENERGY
-                        </span>
-
-                        <small class="logo-subtitle">
-                            NEWSROOM
-                        </small>
-
-                    </div>
-
-                </a>
-
-                <!-- MOBILE BUTTON -->
-                <button class="navbar-toggler"
-                        type="button"
-                        data-bs-toggle="collapse"
-                        data-bs-target="#navbarNav">
-
-                    <span class="navbar-toggler-icon"></span>
-
-                </button>
-
-                <!-- MENU -->
-                <div class="collapse navbar-collapse" id="navbarNav">
-
-                    <ul class="navbar-nav ms-auto align-items-lg-center">
-
-                        <li class="nav-item">
-
-                            <a class="nav-link active" href="#">
-                                Inicio
-                            </a>
-
-                        </li>
-
-                        <li class="nav-item">
-
-                            <a class="nav-link" href="servicios/index.html">
-                                Servicios
-                            </a>
-
-                        </li>
-
-                        <li class="nav-item">
-
-                            <a class="nav-link" href="#">
-                                TechRoom
-                            </a>
-
-                        </li>
-
-                        <li class="nav-item">
-
-                            <a class="nav-link" href="#">
-                                Eventos
-                            </a>
-
-                        </li>
-
-                        <li class="nav-item">
-
-                            <a class="nav-link" href="#">
-                                Contacto
-                            </a>
-
-                        </li>
-
-                        <!-- BOTON -->
-                        <li class="nav-item ms-lg-3">
-
-                            <a href="#" class="support-btn">
-
-                                <i class="fa-solid fa-ticket"></i>
-
-                                Mesa de Ayuda
-
-                            </a>
-
-                        </li>
-
-                    </ul>
-
-                </div>
-
-            </div>
-
-        </nav>
-
-    </header>
-
+</header>
