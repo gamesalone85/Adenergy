@@ -4,11 +4,22 @@
 
 <meta charset="UTF-8">
 
-<title>Reportes TI</title>
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
 
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<title>Stock TI | Adenergy</title>
 
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<!-- Bootstrap -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet">
+
+<!-- Bootstrap Icons -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
+      rel="stylesheet">
+
+<!-- INVENTORY CSS -->
+<link rel="stylesheet"
+      href="inventory.css">
 
 </head>
 
@@ -16,112 +27,264 @@
 
 <div class="container py-5">
 
-<h1 class="mb-5">
-Reportes y KPIs
-</h1>
+    <!-- HEADER -->
+    <div class="inventory-header">
 
-<div class="row g-4">
+        <div class="d-flex justify-content-between align-items-center flex-wrap gap-4">
 
-<div class="col-lg-6">
+            <div>
 
-<div class="card shadow-lg">
+                <h1>
 
-<div class="card-body">
+                    <i class="bi bi-box-seam-fill"></i>
 
-<h4>
-Equipos por Marca
-</h4>
+                    Stock TI
 
-<canvas id="chartMarca"></canvas>
+                </h1>
 
-</div>
+                <p>
 
-</div>
+                    Control y administración de refacciones tecnológicas
 
-</div>
+                </p>
 
-<div class="col-lg-6">
+            </div>
 
-<div class="card shadow-lg">
+            <!-- BOTONES -->
+            <div class="d-flex gap-2 flex-wrap justify-content-end">
 
-<div class="card-body">
+                <a href="index.html"
+                   class="btn btn-dark">
 
-<h4>
-Equipos por Estado
-</h4>
+                    <i class="bi bi-arrow-left"></i>
 
-<canvas id="chartEstado"></canvas>
+                    Volver Inventario
 
-</div>
+                </a>
 
-</div>
+                <a href="../support/admin.html"
+                   class="btn btn-success">
 
-</div>
+                    <i class="bi bi-house-fill"></i>
 
-</div>
+                    Panel Tickets
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- FORM -->
+    <div class="card shadow-lg mb-4">
+
+        <div class="card-body p-4">
+
+            <h4 class="mb-4">
+
+                Registrar Refacción
+
+            </h4>
+
+            <form id="stockForm">
+
+                <div class="row g-4">
+
+                    <!-- PIEZA -->
+                    <div class="col-md-5">
+
+                        <label class="form-label">
+
+                            Pieza / Refacción
+
+                        </label>
+
+                        <input type="text"
+                               id="pieza"
+                               class="form-control"
+                               placeholder="Ejemplo: SSD Kingston 1TB">
+
+                    </div>
+
+                    <!-- CANTIDAD -->
+                    <div class="col-md-4">
+
+                        <label class="form-label">
+
+                            Cantidad
+
+                        </label>
+
+                        <input type="number"
+                               id="cantidad"
+                               class="form-control"
+                               placeholder="0">
+
+                    </div>
+
+                    <!-- BOTON -->
+                    <div class="col-md-3 d-flex align-items-end">
+
+                        <button class="btn btn-primary w-100">
+
+                            <i class="bi bi-save-fill"></i>
+
+                            Guardar
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+    <!-- TABLA -->
+    <div class="card shadow-lg">
+
+        <div class="card-body p-4">
+
+            <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-3">
+
+                <h4 class="mb-0">
+
+                    Refacciones Registradas
+
+                </h4>
+
+                <input type="text"
+                       id="searchInput"
+                       class="form-control w-auto"
+                       placeholder="Buscar refacción...">
+
+            </div>
+
+            <div class="table-responsive">
+
+                <table class="table table-hover align-middle">
+
+                    <thead>
+
+                        <tr>
+
+                            <th>
+                                Pieza
+                            </th>
+
+                            <th>
+                                Cantidad
+                            </th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody id="stockTable"></tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+
+    </div>
 
 </div>
 
 <script>
 
-const inventario =
-    JSON.parse(localStorage.getItem("inventario")) || [];
+const stock =
+    JSON.parse(localStorage.getItem("stock")) || [];
 
-const marcas = {};
-const estados = {};
+const table =
+    document.getElementById("stockTable");
 
-inventario.forEach(eq => {
+function render(data = stock){
 
-    marcas[eq.marca] =
-        (marcas[eq.marca] || 0) + 1;
+    table.innerHTML = "";
 
-    estados[eq.estado] =
-        (estados[eq.estado] || 0) + 1;
+    data.slice().reverse().forEach(s => {
+
+        table.innerHTML += `
+
+            <tr>
+
+                <td>
+
+                    <strong>
+                        ${s.pieza}
+                    </strong>
+
+                </td>
+
+                <td>
+
+                    <span class="badge-status badge-disponible">
+
+                        ${s.cantidad} piezas
+
+                    </span>
+
+                </td>
+
+            </tr>
+
+        `;
+    });
+}
+
+document.getElementById("stockForm")
+.addEventListener("submit", function(e){
+
+    e.preventDefault();
+
+    stock.push({
+
+        pieza:
+            document.getElementById("pieza").value,
+
+        cantidad:
+            document.getElementById("cantidad").value
+
+    });
+
+    localStorage.setItem(
+        "stock",
+        JSON.stringify(stock)
+    );
+
+    render();
+
+    this.reset();
 });
 
-new Chart(
+/* ======================================================
+   BUSQUEDA
+====================================================== */
 
-    document.getElementById("chartMarca"),
+document.getElementById("searchInput")
+.addEventListener("keyup", function(){
 
-    {
+    const value =
+        this.value.toLowerCase();
 
-        type:"bar",
+    const filtrados =
+        stock.filter(s =>
 
-        data:{
+            s.pieza.toLowerCase().includes(value)
 
-            labels:Object.keys(marcas),
+        );
 
-            datasets:[{
+    render(filtrados);
+});
 
-                label:"Equipos",
-
-                data:Object.values(marcas)
-
-            }]
-        }
-    }
-);
-
-new Chart(
-
-    document.getElementById("chartEstado"),
-
-    {
-
-        type:"pie",
-
-        data:{
-
-            labels:Object.keys(estados),
-
-            datasets:[{
-
-                data:Object.values(estados)
-
-            }]
-        }
-    }
-);
+render();
 
 </script>
 
