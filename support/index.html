@@ -3,57 +3,99 @@
 <head>
 
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
 
     <title>Mesa de Ayuda | Adenergy</title>
 
     <!-- Bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+          rel="stylesheet">
 
     <!-- Icons -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
+          rel="stylesheet">
 
-    <link rel="stylesheet" href="support.css">
+    <!-- CSS -->
+    <link rel="stylesheet"
+          href="support.css">
 
 </head>
 
 <body>
 
+<div class="support-wrapper">
+
 <div class="container py-5">
 
     <!-- HEADER -->
-    <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-3">
+    <div class="support-header mb-5">
 
         <div>
 
-            <h1 class="fw-bold">
+            <h1 class="support-title">
+
                 <i class="bi bi-ticket-detailed-fill"></i>
+
                 Mesa de Ayuda
+
             </h1>
 
-            <p class="text-muted mb-0">
-                Bienvenido al Sistema de Registro de incidencias y Soporte Técnico.
+            <p class="support-subtitle mb-1">
+
+                Bienvenido al Sistema de Registro de Incidencias y Soporte Técnico.
+
             </p>
-            <p class="text-muted mb-0">
-                Aquí puedes levantar tu incidente para que podamos ayudarte de manera eficiente.
+
+            <p class="support-description mb-0">
+
+                Registra tu solicitud para que el área de TI pueda brindarte atención y seguimiento oportuno.
+
             </p>
 
         </div>
 
-        <a href="../index.html" class="btn btn-dark">
-            <i class="bi bi-house-fill"></i>
-            Volver al Inicio
-        </a>
+        <!-- BOTONES -->
+        <div class="support-actions">
+
+            <a href="../index.html"
+               class="btn btn-adenergy-secondary">
+
+                <i class="bi bi-house-fill"></i>
+
+                Volver al Inicio
+
+            </a>
+
+            <a href="login.html"
+               class="btn btn-adenergy-primary">
+
+                <i class="bi bi-shield-lock-fill"></i>
+
+                Panel Administrativo
+
+            </a>
+
+        </div>
+
     </div>
 
     <!-- FORMULARIO -->
-    <div class="card shadow-lg border-0 rounded-4 mb-5">
+    <div class="support-card mb-5">
 
-        <div class="card-body p-4">
+        <div class="card-body p-4 p-lg-5">
 
-            <h4 class="mb-4">
-                Crear Ticket
-            </h4>
+            <div class="section-title mb-4">
+
+                <h4>
+
+                    <i class="bi bi-plus-circle-fill"></i>
+
+                    Crear Ticket
+
+                </h4>
+
+            </div>
 
             <form id="ticketForm">
 
@@ -63,12 +105,15 @@
                     <div class="col-md-6">
 
                         <label class="form-label">
+
                             Nombre de Usuario
+
                         </label>
 
                         <input type="text"
                                class="form-control"
                                id="usuario"
+                               placeholder="Ingresa tu nombre"
                                required>
 
                     </div>
@@ -77,7 +122,9 @@
                     <div class="col-md-6">
 
                         <label class="form-label">
+
                             Fecha
+
                         </label>
 
                         <input type="text"
@@ -91,7 +138,9 @@
                     <div class="col-md-6">
 
                         <label class="form-label">
+
                             Número de Ticket
+
                         </label>
 
                         <input type="text"
@@ -105,10 +154,14 @@
                     <div class="col-md-6">
 
                         <label class="form-label">
+
                             División
+
                         </label>
 
-                        <select class="form-select" id="division" required>
+                        <select class="form-select"
+                                id="division"
+                                required>
 
                             <option value="">
                                 Seleccionar
@@ -134,10 +187,14 @@
                     <div class="col-md-6">
 
                         <label class="form-label">
+
                             Categoría
+
                         </label>
 
-                        <select class="form-select" id="categoria" required>
+                        <select class="form-select"
+                                id="categoria"
+                                required>
 
                             <option value="">
                                 Seleccionar
@@ -199,10 +256,13 @@
                     <div class="col-md-6">
 
                         <label class="form-label">
+
                             Prioridad
+
                         </label>
 
-                        <select class="form-select" id="prioridad">
+                        <select class="form-select"
+                                id="prioridad">
 
                             <option>
                                 Baja
@@ -228,12 +288,15 @@
                     <div class="col-md-6">
 
                         <label class="form-label">
+
                             Correo / Contacto
+
                         </label>
 
                         <input type="text"
                                class="form-control"
-                               id="contacto">
+                               id="contacto"
+                               placeholder="correo@empresa.com">
 
                     </div>
 
@@ -241,12 +304,15 @@
                     <div class="col-md-6">
 
                         <label class="form-label">
+
                             Equipo / Activo
+
                         </label>
 
                         <input type="text"
                                class="form-control"
-                               id="equipo">
+                               id="equipo"
+                               placeholder="Ejemplo: ADE-0001">
 
                     </div>
 
@@ -254,12 +320,15 @@
                     <div class="col-12">
 
                         <label class="form-label">
+
                             Descripción del Problema
+
                         </label>
 
                         <textarea class="form-control"
                                   rows="5"
                                   id="descripcion"
+                                  placeholder="Describe detalladamente el incidente..."
                                   required></textarea>
 
                     </div>
@@ -268,9 +337,10 @@
                     <div class="col-12 text-end">
 
                         <button type="submit"
-                                class="btn btn-primary btn-lg">
+                                class="btn btn-adenergy-primary btn-lg">
 
                             <i class="bi bi-save-fill"></i>
+
                             Registrar Ticket
 
                         </button>
@@ -286,19 +356,39 @@
     </div>
 
     <!-- TABLA -->
-    <div class="card shadow-lg border-0 rounded-4">
+    <div class="support-card">
 
         <div class="card-body p-4">
 
-            <h4 class="mb-4">
-                Tickets Registrados
-            </h4>
+            <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-3">
+
+                <div>
+
+                    <h4 class="mb-1">
+
+                        Tickets Registrados
+
+                    </h4>
+
+                    <p class="text-muted mb-0">
+
+                        Historial de incidencias registradas
+
+                    </p>
+
+                </div>
+
+                <input type="text"
+                       class="form-control search-input"
+                       placeholder="Buscar ticket...">
+
+            </div>
 
             <div class="table-responsive">
 
-                <table class="table table-hover align-middle">
+                <table class="table table-hover align-middle support-table">
 
-                    <thead class="table-dark">
+                    <thead>
 
                         <tr>
 
@@ -325,6 +415,8 @@
         </div>
 
     </div>
+
+</div>
 
 </div>
 
