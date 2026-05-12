@@ -3,191 +3,293 @@
 <head>
 
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta name="viewport"
-      content="width=device-width, initial-scale=1.0">
-
-<title>Stock TI | Adenergy</title>
+<title>Reportes TI | Adenergy</title>
 
 <!-- Bootstrap -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
       rel="stylesheet">
 
-<!-- Bootstrap Icons -->
+<!-- Icons -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
       rel="stylesheet">
 
-<!-- INVENTORY CSS -->
-<link rel="stylesheet"
-      href="inventory.css">
+<!-- Chart -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<!-- CSS -->
+<link rel="stylesheet" href="inventory.css">
 
 </head>
 
 <body>
 
+<div class="inventory-wrapper">
+
 <div class="container py-5">
 
     <!-- HEADER -->
-    <div class="inventory-header">
+    <div class="inventory-header mb-5">
 
-        <div class="d-flex justify-content-between align-items-center flex-wrap gap-4">
+        <div>
 
-            <div>
+            <h1 class="inventory-title">
 
-                <h1>
+                <i class="bi bi-bar-chart-line-fill"></i>
 
-                    <i class="bi bi-box-seam-fill"></i>
+                Reportes TI
 
-                    Stock TI
+            </h1>
 
-                </h1>
+            <p class="inventory-subtitle mb-0">
 
-                <p>
+                Indicadores estratégicos y métricas operativas del inventario tecnológico
 
-                    Control y administración de refacciones tecnológicas
+            </p>
 
-                </p>
+        </div>
 
-            </div>
+        <!-- BOTONES -->
+        <div class="inventory-actions">
 
-            <!-- BOTONES -->
-            <div class="d-flex gap-2 flex-wrap justify-content-end">
+            <a href="index.html"
+               class="btn btn-adenergy-secondary">
 
-                <a href="index.html"
-                   class="btn btn-dark">
+                <i class="bi bi-arrow-left-circle-fill"></i>
 
-                    <i class="bi bi-arrow-left"></i>
+                Volver a Inventario
 
-                    Volver Inventario
+            </a>
 
-                </a>
+            <button class="btn btn-adenergy-primary"
+                    onclick="window.print()">
 
-                <a href="../support/admin.html"
-                   class="btn btn-success">
+                <i class="bi bi-printer-fill"></i>
 
-                    <i class="bi bi-house-fill"></i>
+                Imprimir Reporte
 
-                    Panel Tickets
-
-                </a>
-
-            </div>
+            </button>
 
         </div>
 
     </div>
 
-    <!-- FORM -->
-    <div class="card shadow-lg mb-4">
+    <!-- KPIS -->
+    <div class="row g-4 mb-5">
 
-        <div class="card-body p-4">
+        <div class="col-md-3">
 
-            <h4 class="mb-4">
+            <div class="inventory-card kpi-card">
 
-                Registrar Refacción
+                <div class="card-body">
 
-            </h4>
+                    <div class="kpi-icon">
 
-            <form id="stockForm">
-
-                <div class="row g-4">
-
-                    <!-- PIEZA -->
-                    <div class="col-md-5">
-
-                        <label class="form-label">
-
-                            Pieza / Refacción
-
-                        </label>
-
-                        <input type="text"
-                               id="pieza"
-                               class="form-control"
-                               placeholder="Ejemplo: SSD Kingston 1TB">
+                        <i class="bi bi-pc-display"></i>
 
                     </div>
 
-                    <!-- CANTIDAD -->
-                    <div class="col-md-4">
+                    <h6 class="kpi-label">
+                        Equipos Registrados
+                    </h6>
 
-                        <label class="form-label">
-
-                            Cantidad
-
-                        </label>
-
-                        <input type="number"
-                               id="cantidad"
-                               class="form-control"
-                               placeholder="0">
-
-                    </div>
-
-                    <!-- BOTON -->
-                    <div class="col-md-3 d-flex align-items-end">
-
-                        <button class="btn btn-primary w-100">
-
-                            <i class="bi bi-save-fill"></i>
-
-                            Guardar
-
-                        </button>
-
-                    </div>
+                    <h2 id="kpiTotal">
+                        0
+                    </h2>
 
                 </div>
 
-            </form>
+            </div>
+
+        </div>
+
+        <div class="col-md-3">
+
+            <div class="inventory-card kpi-card">
+
+                <div class="card-body">
+
+                    <div class="kpi-icon">
+
+                        <i class="bi bi-person-check-fill"></i>
+
+                    </div>
+
+                    <h6 class="kpi-label">
+                        Equipos Asignados
+                    </h6>
+
+                    <h2 id="kpiAsignados">
+                        0
+                    </h2>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="col-md-3">
+
+            <div class="inventory-card kpi-card">
+
+                <div class="card-body">
+
+                    <div class="kpi-icon">
+
+                        <i class="bi bi-check-circle-fill"></i>
+
+                    </div>
+
+                    <h6 class="kpi-label">
+                        Disponibles
+                    </h6>
+
+                    <h2 id="kpiDisponibles">
+                        0
+                    </h2>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="col-md-3">
+
+            <div class="inventory-card kpi-card">
+
+                <div class="card-body">
+
+                    <div class="kpi-icon">
+
+                        <i class="bi bi-tools"></i>
+
+                    </div>
+
+                    <h6 class="kpi-label">
+                        En Reparación
+                    </h6>
+
+                    <h2 id="kpiReparacion">
+                        0
+                    </h2>
+
+                </div>
+
+            </div>
 
         </div>
 
     </div>
 
-    <!-- TABLA -->
-    <div class="card shadow-lg">
+    <!-- GRAFICAS -->
+    <div class="row g-4">
 
-        <div class="card-body p-4">
+        <!-- MARCAS -->
+        <div class="col-lg-6">
 
-            <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-3">
+            <div class="inventory-card">
 
-                <h4 class="mb-0">
+                <div class="card-body p-4">
 
-                    Refacciones Registradas
+                    <div class="section-title mb-4">
 
-                </h4>
+                        <h4>
 
-                <input type="text"
-                       id="searchInput"
-                       class="form-control w-auto"
-                       placeholder="Buscar refacción...">
+                            <i class="bi bi-building-fill"></i>
+
+                            Equipos por Marca
+
+                        </h4>
+
+                    </div>
+
+                    <canvas id="chartMarca"></canvas>
+
+                </div>
 
             </div>
 
-            <div class="table-responsive">
+        </div>
 
-                <table class="table table-hover align-middle">
+        <!-- ESTADOS -->
+        <div class="col-lg-6">
 
-                    <thead>
+            <div class="inventory-card">
 
-                        <tr>
+                <div class="card-body p-4">
 
-                            <th>
-                                Pieza
-                            </th>
+                    <div class="section-title mb-4">
 
-                            <th>
-                                Cantidad
-                            </th>
+                        <h4>
 
-                        </tr>
+                            <i class="bi bi-pie-chart-fill"></i>
 
-                    </thead>
+                            Estado de Equipos
 
-                    <tbody id="stockTable"></tbody>
+                        </h4>
 
-                </table>
+                    </div>
+
+                    <canvas id="chartEstado"></canvas>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- DIVISIONES -->
+        <div class="col-lg-6">
+
+            <div class="inventory-card">
+
+                <div class="card-body p-4">
+
+                    <div class="section-title mb-4">
+
+                        <h4>
+
+                            <i class="bi bi-diagram-3-fill"></i>
+
+                            Equipos por División
+
+                        </h4>
+
+                    </div>
+
+                    <canvas id="chartDivision"></canvas>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- TIPOS -->
+        <div class="col-lg-6">
+
+            <div class="inventory-card">
+
+                <div class="card-body p-4">
+
+                    <div class="section-title mb-4">
+
+                        <h4>
+
+                            <i class="bi bi-hdd-network-fill"></i>
+
+                            Equipos por Tipo
+
+                        </h4>
+
+                    </div>
+
+                    <canvas id="chartTipo"></canvas>
+
+                </div>
 
             </div>
 
@@ -197,94 +299,213 @@
 
 </div>
 
+</div>
+
 <script>
 
-const stock =
-    JSON.parse(localStorage.getItem("stock")) || [];
+const inventario =
+    JSON.parse(localStorage.getItem("inventario")) || [];
 
-const table =
-    document.getElementById("stockTable");
+// =======================
+// KPIS
+// =======================
 
-function render(data = stock){
+document.getElementById("kpiTotal")
+.textContent =
+    inventario.length;
 
-    table.innerHTML = "";
+document.getElementById("kpiAsignados")
+.textContent =
+    inventario.filter(
+        eq => eq.estado === "Asignado"
+    ).length;
 
-    data.slice().reverse().forEach(s => {
+document.getElementById("kpiDisponibles")
+.textContent =
+    inventario.filter(
+        eq => eq.estado === "Disponible"
+    ).length;
 
-        table.innerHTML += `
+document.getElementById("kpiReparacion")
+.textContent =
+    inventario.filter(
+        eq => eq.estado === "Reparación"
+    ).length;
 
-            <tr>
+// =======================
+// OBJETOS
+// =======================
 
-                <td>
+const marcas = {};
+const estados = {};
+const divisiones = {};
+const tipos = {};
 
-                    <strong>
-                        ${s.pieza}
-                    </strong>
+inventario.forEach(eq => {
 
-                </td>
+    marcas[eq.marca] =
+        (marcas[eq.marca] || 0) + 1;
 
-                <td>
+    estados[eq.estado] =
+        (estados[eq.estado] || 0) + 1;
 
-                    <span class="badge-status badge-disponible">
+    divisiones[eq.division] =
+        (divisiones[eq.division] || 0) + 1;
 
-                        ${s.cantidad} piezas
-
-                    </span>
-
-                </td>
-
-            </tr>
-
-        `;
-    });
-}
-
-document.getElementById("stockForm")
-.addEventListener("submit", function(e){
-
-    e.preventDefault();
-
-    stock.push({
-
-        pieza:
-            document.getElementById("pieza").value,
-
-        cantidad:
-            document.getElementById("cantidad").value
-
-    });
-
-    localStorage.setItem(
-        "stock",
-        JSON.stringify(stock)
-    );
-
-    render();
-
-    this.reset();
+    tipos[eq.tipo] =
+        (tipos[eq.tipo] || 0) + 1;
 });
 
-/* ======================================================
-   BUSQUEDA
-====================================================== */
+// =======================
+// CHART MARCAS
+// =======================
 
-document.getElementById("searchInput")
-.addEventListener("keyup", function(){
+new Chart(
 
-    const value =
-        this.value.toLowerCase();
+    document.getElementById("chartMarca"),
 
-    const filtrados =
-        stock.filter(s =>
+    {
 
-            s.pieza.toLowerCase().includes(value)
+        type:"bar",
 
-        );
+        data:{
 
-    render(filtrados);
-});
+            labels:Object.keys(marcas),
 
-render();
+            datasets:[{
+
+                label:"Equipos",
+
+                data:Object.values(marcas),
+
+                backgroundColor:"#c8102e",
+
+                borderRadius:10
+
+            }]
+        },
+
+        options:{
+
+            responsive:true,
+
+            plugins:{
+
+                legend:{
+                    display:false
+                }
+            }
+        }
+    }
+);
+
+// =======================
+// CHART ESTADOS
+// =======================
+
+new Chart(
+
+    document.getElementById("chartEstado"),
+
+    {
+
+        type:"doughnut",
+
+        data:{
+
+            labels:Object.keys(estados),
+
+            datasets:[{
+
+                data:Object.values(estados),
+
+                backgroundColor:[
+
+                    "#c8102e",
+                    "#54565a",
+                    "#00ae42",
+                    "#d6d6d6"
+
+                ]
+            }]
+        }
+    }
+);
+
+// =======================
+// CHART DIVISION
+// =======================
+
+new Chart(
+
+    document.getElementById("chartDivision"),
+
+    {
+
+        type:"pie",
+
+        data:{
+
+            labels:Object.keys(divisiones),
+
+            datasets:[{
+
+                data:Object.values(divisiones),
+
+                backgroundColor:[
+
+                    "#c8102e",
+                    "#54565a",
+                    "#00ae42"
+
+                ]
+            }]
+        }
+    }
+);
+
+// =======================
+// CHART TIPOS
+// =======================
+
+new Chart(
+
+    document.getElementById("chartTipo"),
+
+    {
+
+        type:"bar",
+
+        data:{
+
+            labels:Object.keys(tipos),
+
+            datasets:[{
+
+                label:"Equipos",
+
+                data:Object.values(tipos),
+
+                backgroundColor:"#54565a",
+
+                borderRadius:10
+
+            }]
+        },
+
+        options:{
+
+            responsive:true,
+
+            plugins:{
+
+                legend:{
+                    display:false
+                }
+            }
+        }
+    }
+);
 
 </script>
 
