@@ -321,3 +321,231 @@ canvas{
         width:100% !important;
     }
 }
+/* =========================================================
+   SUPPORT HERO
+========================================================= */
+
+.support-hero{
+    background: linear-gradient(135deg,#ffffff 0%,#f5f7fb 100%);
+    border-radius: 30px;
+    padding: 50px;
+    box-shadow: 0 15px 40px rgba(0,0,0,.08);
+    border: 1px solid #edf0f5;
+}
+
+.hero-badge{
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(200,16,46,.08);
+    color: #c8102e;
+    padding: 10px 18px;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 14px;
+}
+
+.hero-title{
+    font-size: 3rem;
+    font-weight: 800;
+    color: #1d232f;
+    margin-bottom: 20px;
+}
+
+.hero-description{
+    font-size: 17px;
+    color: #6c757d;
+    max-width: 700px;
+    line-height: 1.8;
+}
+
+.hero-buttons{
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-top: 30px;
+}
+
+.hero-side-card{
+    background: linear-gradient(135deg,#c8102e 0%,#9e0f26 100%);
+    color: #ffffff;
+    border-radius: 25px;
+    padding: 35px;
+    height: 100%;
+    box-shadow: 0 20px 40px rgba(200,16,46,.25);
+}
+
+.hero-icon{
+    width: 80px;
+    height: 80px;
+    border-radius: 20px;
+    background: rgba(255,255,255,.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 34px;
+    margin-bottom: 25px;
+}
+
+.hero-side-card h4{
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.hero-side-card p{
+    opacity: .9;
+    line-height: 1.7;
+}
+
+.hero-status{
+    margin-top: 25px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 600;
+}
+
+.status-dot{
+    width: 12px;
+    height: 12px;
+    background: #00d26a;
+    border-radius: 50%;
+    box-shadow: 0 0 10px #00d26a;
+}
+
+/* =========================================================
+   SUPPORT CARD
+========================================================= */
+
+.support-card{
+    background: #ffffff;
+    overflow: hidden;
+}
+
+.section-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.section-title{
+    font-weight: 800;
+    color: #1d232f;
+    margin-bottom: 8px;
+}
+
+.section-title i{
+    color: #c8102e;
+    margin-right: 10px;
+}
+
+.section-subtitle{
+    color: #6c757d;
+}
+
+/* =========================================================
+   INPUTS
+========================================================= */
+
+.custom-input .input-group-text{
+    background: #f4f7fb;
+    border: 1px solid #dfe5ec;
+    color: #c8102e;
+    border-radius: 14px 0 0 14px;
+}
+
+.custom-input .form-control,
+.custom-input .form-select{
+    border-left: none;
+}
+
+.form-control,
+.form-select{
+    border-radius: 14px;
+    padding: 14px;
+    border: 1px solid #dfe5ec;
+    transition: .3s;
+}
+
+.form-control:focus,
+.form-select:focus{
+    border-color: #c8102e;
+    box-shadow: 0 0 0 0.2rem rgba(200,16,46,.15);
+}
+
+.textarea-custom{
+    border-radius: 18px;
+    padding: 20px;
+}
+
+/* =========================================================
+   SEARCH
+========================================================= */
+
+.search-box{
+    position: relative;
+    width: 320px;
+}
+
+.search-box i{
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #9ca3af;
+}
+
+.search-input{
+    padding-left: 45px;
+    border-radius: 14px;
+}
+
+/* =========================================================
+   TABLE
+========================================================= */
+
+.support-table thead{
+    background: linear-gradient(135deg,#1d232f,#2d3748);
+}
+
+.support-table thead th{
+    color: #ffffff;
+    border: none;
+    padding: 18px;
+    font-weight: 600;
+}
+
+.support-table tbody td{
+    padding: 18px;
+    vertical-align: middle;
+}
+
+.support-table tbody tr{
+    transition: .3s;
+}
+
+.support-table tbody tr:hover{
+    background: rgba(200,16,46,.03);
+}
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media(max-width:991px){
+
+    .support-hero{
+        padding: 30px;
+    }
+
+    .hero-title{
+        font-size: 2.2rem;
+    }
+
+    .search-box{
+        width: 100%;
+    }
+
+}
