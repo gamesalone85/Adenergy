@@ -1,19 +1,23 @@
 /* =======================================================
    ADENERGY NEWSROOM
-   MAIN STYLES
+   MAIN STYLES (CLEAN + CORPORATE SYSTEM)
+======================================================= */
+
+/* =======================================================
+   VARIABLES CORPORATIVAS
 ======================================================= */
 
 :root{
 
-    /* COLORES */
-    --primary-gray:#54565a;
+    /* COLORES AUTORIZADOS */
     --primary-red:#c8102e;
-    --secondary-white:#ffffff;
+    --primary-gray:#54565a;
+    --primary-green:#00ae42;
 
     --white:#ffffff;
-    --cream-soft:#fffaf1;
+    --light-gray:#d2d0cd;
+    --warm-gray:#968c83;
 
-    --white:#ffffff;
     --text-dark:#1d2939;
     --text-gray:#54565a;
 
@@ -38,7 +42,7 @@ html{
 body{
     font-family:'Poppins',sans-serif;
     overflow-x:hidden;
-    background:var(--cream);
+    background:var(--light-gray);
     color:var(--text-dark);
 }
 
@@ -52,8 +56,8 @@ body{
 
     background:
         linear-gradient(
-            rgba(246,241,231,.92),
-            rgba(246,241,231,.94)
+            rgba(210,208,205,.92),
+            rgba(210,208,205,.94)
         ),
         url('/images/background.jpg');
 
@@ -70,12 +74,12 @@ body{
     background:
         radial-gradient(
             circle at top right,
-            rgba(215,25,32,.08),
+            rgba(200,16,46,.08),
             transparent 35%
         ),
         radial-gradient(
             circle at bottom left,
-            rgba(11,59,120,.10),
+            rgba(84,86,90,.10),
             transparent 40%
         );
 
@@ -103,7 +107,7 @@ body{
 .hero h1{
     font-size:64px;
     font-weight:700;
-    color:var(--primary-blue);
+    color:var(--primary-gray);
     line-height:1.1;
     margin-bottom:25px;
 }
@@ -124,12 +128,11 @@ body{
 }
 
 /* =======================================================
-   BUTTONS
+   BOTONES
 ======================================================= */
 
 .hero-buttons{
     margin-top:40px;
-
     display:flex;
     justify-content:center;
     gap:20px;
@@ -137,56 +140,31 @@ body{
 }
 
 .btn-main{
-    background:linear-gradient(
-        135deg,
-        var(--primary-red),
-        #ff3c45
-    );
-
+    background:linear-gradient(135deg,var(--primary-red),#ff3c45);
     border:none;
     color:#fff;
-
     padding:16px 34px;
-
     border-radius:50px;
-
     font-weight:600;
-
     transition:.4s;
-
-    box-shadow:
-        0 10px 25px rgba(215,25,32,.25);
+    box-shadow:0 10px 25px rgba(200,16,46,.25);
 }
 
 .btn-second{
-    background:linear-gradient(
-        135deg,
-        var(--primary-blue),
-        var(--secondary-blue)
-    );
-
+    background:linear-gradient(135deg,var(--primary-gray),var(--warm-gray));
     border:none;
     color:#fff;
-
     padding:16px 34px;
-
     border-radius:50px;
-
     font-weight:600;
-
     transition:.4s;
-
-    box-shadow:
-        0 10px 25px rgba(11,59,120,.22);
+    box-shadow:0 10px 25px rgba(84,86,90,.22);
 }
 
 .btn-main:hover,
 .btn-second:hover{
-
     transform:translateY(-5px);
-
-    box-shadow:
-        0 18px 35px rgba(0,0,0,.18);
+    box-shadow:0 18px 35px rgba(0,0,0,.18);
 }
 
 /* =======================================================
@@ -201,22 +179,13 @@ body{
     width:100%;
     border-radius:35px;
     overflow:hidden;
-
-    box-shadow:
-        0 20px 45px rgba(0,0,0,.16);
-}
-
-.swiper-slide{
-    position:relative;
-    overflow:hidden;
+    box-shadow:0 20px 45px rgba(0,0,0,.16);
 }
 
 .swiper-slide img{
     width:100%;
     height:680px;
-
     object-fit:cover;
-
     transition:.6s;
 }
 
@@ -224,42 +193,26 @@ body{
     transform:scale(1.05);
 }
 
-/* OVERLAY */
-
 .swiper-slide::before{
     content:"";
-
     position:absolute;
     inset:0;
-
-    background:
-        linear-gradient(
-            90deg,
-            rgba(11,59,120,.35),
-            rgba(215,25,32,.18)
-        );
-
+    background:linear-gradient(90deg,rgba(200,16,46,.25),rgba(84,86,90,.25));
     z-index:2;
 }
 
 /* =======================================================
-   SWIPER BUTTONS
+   SWIPER CONTROLS
 ======================================================= */
 
 .swiper-button-next,
 .swiper-button-prev{
-
     width:55px !important;
     height:55px !important;
-
     border-radius:50%;
-
     background:rgba(255,255,255,.18);
-
     backdrop-filter:blur(10px);
-
     color:#fff !important;
-
     transition:.4s;
 }
 
@@ -268,20 +221,10 @@ body{
     background:var(--primary-red);
 }
 
-.swiper-button-next::after,
-.swiper-button-prev::after{
-    font-size:20px !important;
-    font-weight:700;
-}
-
-/* PAGINATION */
-
 .swiper-pagination-bullet{
     width:14px !important;
     height:14px !important;
-
-    background:#ffffff !important;
-
+    background:#fff !important;
     opacity:.6;
 }
 
@@ -299,64 +242,30 @@ body{
 }
 
 .service-card{
-
     background:rgba(255,255,255,.75);
-
     backdrop-filter:blur(10px);
-
     border-radius:30px;
-
     padding:45px 35px;
-
     text-align:center;
-
     height:100%;
-
     transition:.4s;
-
-    border:
-        1px solid rgba(11,59,120,.08);
-
+    border:1px solid rgba(84,86,90,.08);
     box-shadow:var(--shadow);
 }
 
 .service-card:hover{
-
     transform:translateY(-10px);
-
-    border-color:rgba(215,25,32,.25);
-
-    box-shadow:
-        0 20px 40px rgba(0,0,0,.14);
+    border-color:rgba(200,16,46,.25);
 }
 
 .service-card i{
-
     font-size:58px;
-
     color:var(--primary-red);
-
     margin-bottom:25px;
 }
 
-.service-card h3{
-
-    color:var(--primary-blue);
-
-    margin-bottom:18px;
-
-    font-weight:700;
-}
-
-.service-card p{
-
-    color:var(--text-gray);
-
-    line-height:1.9;
-}
-
 /* =======================================================
-   ABOUT SECTION
+   ABOUT
 ======================================================= */
 
 .about-section{
@@ -364,391 +273,119 @@ body{
 }
 
 .about-section h2{
-    color:var(--primary-blue) !important;
+    color:var(--primary-gray);
     font-size:48px;
     font-weight:700;
 }
 
 .about-section p{
-    color:var(--text-gray) !important;
+    color:var(--text-gray);
     line-height:2;
     font-size:18px;
 }
 
-/* BANNER */
-
-.banner-click{
-
-    border-radius:30px;
-
-    overflow:hidden;
-
-    box-shadow:
-        0 18px 40px rgba(0,0,0,.18);
-
-    transition:.5s;
-}
-
-.banner-click:hover{
-    transform:scale(1.02);
-}
-
 /* =======================================================
-   SECTION SPACING
+   NEWSROOM
 ======================================================= */
-
-section{
-    position:relative;
-}
-
-/* =======================================================
-   RESPONSIVE
-======================================================= */
-
-@media(max-width:1200px){
-
-    .hero h1{
-        font-size:54px;
-    }
-
-    .swiper-slide img{
-        height:600px;
-    }
-}
-
-@media(max-width:992px){
-
-    .hero{
-        padding-top:170px;
-    }
-
-    .hero h1{
-        font-size:46px;
-    }
-
-    .swiper-slide img{
-        height:500px;
-    }
-}
-
-@media(max-width:768px){
-
-    .hero{
-        padding-top:150px;
-    }
-
-    .hero h1{
-        font-size:36px;
-    }
-
-    .highlight{
-        font-size:20px;
-    }
-
-    .description{
-        font-size:16px;
-    }
-
-    .swiper-slide img{
-        height:360px;
-    }
-
-    .about-section h2{
-        font-size:34px;
-    }
-
-    .about-section p{
-        font-size:16px;
-    }
-}
-
-@media(max-width:576px){
-
-    .hero h1{
-        font-size:30px;
-    }
-
-    .swiper-slide img{
-        height:250px;
-    }
-
-    .btn-main,
-    .btn-second{
-        width:100%;
-    }
-
-    .service-card{
-        padding:35px 25px;
-    }
-}
-
-.service-card{
-
-    transition:.3s;
-    cursor:pointer;
-}
-
-.service-card:hover{
-
-    transform:translateY(-5px);
-}
-
-a .service-card{
-
-    color:inherit;
-}
-/* =========================================
-   AI ASSISTANT
-========================================= */
-
-.ai-button{
-
-    position:fixed;
-    bottom:30px;
-    right:30px;
-
-    width:70px;
-    height:70px;
-
-    border-radius:50%;
-
-    background:#0d6efd;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    color:white;
-    font-size:28px;
-
-    cursor:pointer;
-
-    z-index:9999;
-
-    box-shadow:0 10px 30px rgba(0,0,0,.25);
-
-    transition:.3s;
-}
-
-.ai-button:hover{
-
-    transform:scale(1.1);
-}
-
-.ai-chat{
-
-    position:fixed;
-
-    bottom:120px;
-    right:30px;
-
-    width:380px;
-    max-width:90%;
-
-    background:white;
-
-    border-radius:20px;
-
-    overflow:hidden;
-
-    z-index:9999;
-
-    display:none;
-
-    box-shadow:0 20px 50px rgba(0,0,0,.2);
-}
-
-.ai-header{
-
-    background:#0d6efd;
-
-    color:white;
-
-    padding:18px;
-
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-}
-
-.ai-header button{
-
-    background:none;
-    border:none;
-    color:white;
-    font-size:22px;
-}
-
-.ai-body{
-
-    padding:20px;
-}
-
-.ai-result{
-
-    background:#f4f7fb;
-
-    border-radius:12px;
-
-    padding:15px;
-
-    margin-top:15px;
-}
-
-/* ======================================================
-   NEWSROOM SECTION
-====================================================== */
 
 .newsroom-section{
-    padding: 80px 0;
-    position: relative;
-    z-index: 2;
+    padding:80px 0;
 }
 
 .newsroom-card{
-    background: rgba(255,255,255,0.88);
-    backdrop-filter: blur(12px);
-    border: 1px solid rgba(0,0,0,0.08);
-    border-radius: 24px;
-    padding: 30px;
-    height: 100%;
-    color: #111;
-    transition: .3s ease;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+    background:rgba(255,255,255,0.88);
+    backdrop-filter:blur(12px);
+    border-radius:24px;
+    padding:30px;
+    height:100%;
+    color:#111;
+    box-shadow:var(--shadow);
+    transition:.3s;
 }
 
 .newsroom-card:hover{
-    transform: translateY(-5px);
-    border-color: rgba(13,110,253,0.2);
-    box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+    transform:translateY(-5px);
+    border-color:rgba(200,16,46,.25);
 }
 
-/* =========================================
-   BOLETIN PRINCIPAL
-========================================= */
-
-.featured-news{
-    background: linear-gradient(
-        135deg,
-        rgba(255,255,255,0.95),
-        rgba(240,244,255,0.95)
-    );
-}
-
+/* BADGE */
 .news-badge{
-    display: inline-block;
-    background: #0d6efd;
-    color: #fff;
-    padding: 8px 16px;
-    border-radius: 50px;
-    font-size: 12px;
-    font-weight: 700;
-    margin-bottom: 20px;
-    letter-spacing: 1px;
+    display:inline-block;
+    background:var(--primary-red);
+    color:#fff;
+    padding:8px 16px;
+    border-radius:50px;
+    font-size:12px;
+    font-weight:700;
+    margin-bottom:20px;
 }
 
-.featured-news h2{
-    font-size: 2rem;
-    font-weight: 700;
-    margin-bottom: 20px;
-    color: #111;
-}
-
-.featured-news p{
-    color: rgba(0,0,0,0.75);
-    line-height: 1.8;
-    font-size: 15px;
-}
-
+/* BOTÓN NEWS */
 .news-btn{
-    margin-top: 20px;
-    background: #0d6efd;
-    color: #fff;
-    border: none;
-    padding: 12px 24px;
-    border-radius: 12px;
-    font-weight: 600;
-    transition: .3s ease;
+    margin-top:20px;
+    background:var(--primary-red);
+    color:#fff;
+    border:none;
+    padding:12px 24px;
+    border-radius:12px;
+    font-weight:600;
 }
 
 .news-btn:hover{
-    background: #084298;
-    transform: translateY(-2px);
+    background:var(--primary-gray);
 }
 
-/* =========================================
-   ICONOS
-========================================= */
-
+/* ICONOS */
 .card-icon{
-    width: 60px;
-    height: 60px;
-    background: rgba(13,110,253,0.1);
-    color: #0d6efd;
-    border-radius: 16px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 20px;
-    font-size: 24px;
+    width:60px;
+    height:60px;
+    background:rgba(200,16,46,.1);
+    color:var(--primary-red);
+    border-radius:16px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    margin-bottom:20px;
+    font-size:24px;
 }
 
-/* =========================================
-   CUMPLEAÑOS
-========================================= */
+/* =======================================================
+   AI ASSISTANT
+======================================================= */
 
-.birthday-card h4{
-    font-weight: 700;
-    margin-bottom: 20px;
-    color: #111;
+.ai-button{
+    position:fixed;
+    bottom:30px;
+    right:30px;
+    width:70px;
+    height:70px;
+    border-radius:50%;
+    background:var(--primary-red);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:#fff;
+    font-size:28px;
+    cursor:pointer;
+    z-index:9999;
+    box-shadow:0 10px 30px rgba(0,0,0,.25);
 }
 
-.birthday-list{
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.birthday-list li{
-    padding: 12px 0;
-    border-bottom: 1px solid rgba(0,0,0,0.08);
-    color: rgba(0,0,0,0.8);
-    font-size: 15px;
-}
-
-.birthday-list li:last-child{
-    border-bottom: none;
-}
-
-/* =========================================
-   MINI INFO CARDS
-========================================= */
-
-.mini-info h5{
-    font-weight: 700;
-    margin-bottom: 10px;
-    color: #111;
-}
-
-.mini-info p{
-    color: rgba(0,0,0,0.75);
-    margin-top: 10px;
-    line-height: 1.6;
-    font-size: 15px;
-}
-
-/* =========================================
+/* =======================================================
    RESPONSIVE
-========================================= */
+======================================================= */
 
-@media(max-width:991px){
+@media(max-width:992px){
+    .hero h1{font-size:46px;}
+    .swiper-slide img{height:500px;}
+}
 
-    .featured-news h2{
-        font-size: 1.7rem;
-    }
+@media(max-width:768px){
+    .hero h1{font-size:36px;}
+    .swiper-slide img{height:360px;}
+}
 
-    .newsroom-card{
-        padding: 24px;
-    }
-
+@media(max-width:576px){
+    .hero h1{font-size:30px;}
+    .swiper-slide img{height:250px;}
 }
