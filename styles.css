@@ -606,37 +606,43 @@ a .service-card{
 }
 
 .newsroom-card{
-    background: rgba(255,255,255,0.08);
+    background: rgba(255,255,255,0.88);
     backdrop-filter: blur(12px);
-    border: 1px solid rgba(255,255,255,0.1);
+    border: 1px solid rgba(0,0,0,0.08);
     border-radius: 24px;
     padding: 30px;
     height: 100%;
-    color: #fff;
+    color: #111;
     transition: .3s ease;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.12);
 }
 
 .newsroom-card:hover{
     transform: translateY(-5px);
-    border-color: rgba(255,255,255,0.2);
+    border-color: rgba(13,110,253,0.2);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.15);
 }
+
+/* =========================================
+   BOLETIN PRINCIPAL
+========================================= */
 
 .featured-news{
     background: linear-gradient(
         135deg,
-        rgba(0,123,255,0.25),
-        rgba(0,0,0,0.4)
+        rgba(255,255,255,0.95),
+        rgba(240,244,255,0.95)
     );
 }
 
 .news-badge{
     display: inline-block;
     background: #0d6efd;
+    color: #fff;
     padding: 8px 16px;
     border-radius: 50px;
     font-size: 12px;
-    font-weight: 600;
+    font-weight: 700;
     margin-bottom: 20px;
     letter-spacing: 1px;
 }
@@ -645,17 +651,19 @@ a .service-card{
     font-size: 2rem;
     font-weight: 700;
     margin-bottom: 20px;
+    color: #111;
 }
 
 .featured-news p{
-    color: rgba(255,255,255,0.85);
+    color: rgba(0,0,0,0.75);
     line-height: 1.8;
+    font-size: 15px;
 }
 
 .news-btn{
     margin-top: 20px;
-    background: #fff;
-    color: #111;
+    background: #0d6efd;
+    color: #fff;
     border: none;
     padding: 12px 24px;
     border-radius: 12px;
@@ -664,20 +672,35 @@ a .service-card{
 }
 
 .news-btn:hover{
-    background: #0d6efd;
-    color: #fff;
+    background: #084298;
+    transform: translateY(-2px);
 }
+
+/* =========================================
+   ICONOS
+========================================= */
 
 .card-icon{
     width: 60px;
     height: 60px;
-    background: rgba(255,255,255,0.1);
+    background: rgba(13,110,253,0.1);
+    color: #0d6efd;
     border-radius: 16px;
     display: flex;
     align-items: center;
     justify-content: center;
     margin-bottom: 20px;
     font-size: 24px;
+}
+
+/* =========================================
+   CUMPLEAÑOS
+========================================= */
+
+.birthday-card h4{
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: #111;
 }
 
 .birthday-list{
@@ -687,27 +710,45 @@ a .service-card{
 }
 
 .birthday-list li{
-    padding: 10px 0;
-    border-bottom: 1px solid rgba(255,255,255,0.08);
-    color: rgba(255,255,255,0.9);
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(0,0,0,0.08);
+    color: rgba(0,0,0,0.8);
+    font-size: 15px;
 }
 
 .birthday-list li:last-child{
     border-bottom: none;
 }
 
-.mini-info p{
-    color: rgba(255,255,255,0.8);
-    margin-top: 10px;
-    line-height: 1.6;
+/* =========================================
+   MINI INFO CARDS
+========================================= */
+
+.mini-info h5{
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: #111;
 }
 
-/* RESPONSIVE */
+.mini-info p{
+    color: rgba(0,0,0,0.75);
+    margin-top: 10px;
+    line-height: 1.6;
+    font-size: 15px;
+}
+
+/* =========================================
+   RESPONSIVE
+========================================= */
 
 @media(max-width:991px){
 
     .featured-news h2{
         font-size: 1.7rem;
+    }
+
+    .newsroom-card{
+        padding: 24px;
     }
 
 }
