@@ -1,0 +1,352 @@
+:root{
+
+    --adenergy-red:#c8102e;
+    --adenergy-green:#00ae42;
+    --adenergy-dark:#54565a;
+    --adenergy-light:#f4f7fb;
+    --adenergy-white:#ffffff;
+
+}
+
+body{
+
+    background:var(--adenergy-light);
+    font-family:"Segoe UI",sans-serif;
+    color:#1f2937;
+
+}
+
+.techroom-wrapper{
+
+    min-height:100vh;
+
+}
+
+/* HERO */
+
+.hero-section{
+
+    background:linear-gradient(
+        135deg,
+        #ffffff,
+        #f8fafc
+    );
+
+    border-radius:30px;
+
+    padding:60px;
+
+    box-shadow:0 15px 40px rgba(0,0,0,.05);
+
+    border-left:6px solid var(--adenergy-red);
+
+}
+
+.hero-content{
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:30px;
+
+}
+
+.hero-badge{
+
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+
+    background:#ffe8ec;
+    color:var(--adenergy-red);
+
+    padding:10px 18px;
+    border-radius:50px;
+
+    font-weight:700;
+    margin-bottom:20px;
+
+}
+
+.hero-title{
+
+    font-size:3rem;
+    font-weight:800;
+    color:var(--adenergy-red);
+
+    margin-bottom:20px;
+
+}
+
+.hero-description{
+
+    max-width:700px;
+
+    font-size:18px;
+    line-height:1.8;
+
+    color:#4b5563;
+
+}
+
+.hero-actions{
+
+    display:flex;
+    gap:15px;
+    flex-wrap:wrap;
+
+}
+
+/* BOTONES */
+
+.btn-tech-primary{
+
+    background:var(--adenergy-red);
+    color:#fff;
+    border:none;
+    border-radius:14px;
+    padding:14px 24px;
+    font-weight:600;
+
+}
+
+.btn-tech-primary:hover{
+
+    background:#a10d24;
+    color:#fff;
+
+}
+
+.btn-tech-secondary{
+
+    background:var(--adenergy-dark);
+    color:#fff;
+    border:none;
+    border-radius:14px;
+    padding:14px 24px;
+    font-weight:600;
+
+}
+
+.btn-tech-secondary:hover{
+
+    background:#3f4145;
+    color:#fff;
+
+}
+
+/* SECTION */
+
+.section-header h2{
+
+    font-weight:800;
+    color:var(--adenergy-red);
+
+}
+
+.section-header i{
+
+    margin-right:10px;
+
+}
+
+/* INFO */
+
+.info-card{
+
+    background:#fff;
+    border-radius:26px;
+
+    padding:35px;
+
+    box-shadow:0 10px 30px rgba(0,0,0,.05);
+
+}
+
+.info-content p{
+
+    color:#4b5563;
+    line-height:1.9;
+    font-size:16px;
+
+}
+
+/* PILARES */
+
+.pillar-card{
+
+    background:#fff;
+
+    border-radius:24px;
+
+    padding:30px;
+
+    height:100%;
+
+    box-shadow:0 10px 30px rgba(0,0,0,.05);
+
+    transition:.3s;
+
+}
+
+.pillar-card:hover{
+
+    transform:translateY(-5px);
+
+}
+
+.pillar-icon{
+
+    width:70px;
+    height:70px;
+
+    border-radius:20px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    color:#fff;
+    font-size:28px;
+
+    margin-bottom:20px;
+
+}
+
+.pillar-icon.red{
+
+    background:var(--adenergy-red);
+
+}
+
+.pillar-icon.green{
+
+    background:var(--adenergy-green);
+
+}
+
+.pillar-icon.dark{
+
+    background:var(--adenergy-dark);
+
+}
+
+.pillar-card h4{
+
+    font-weight:700;
+    margin-bottom:15px;
+
+}
+
+.pillar-card p{
+
+    color:#6b7280;
+    line-height:1.7;
+
+}
+
+/* MODULOS */
+
+.module-card{
+
+    background:#fff;
+
+    border-radius:24px;
+
+    padding:30px;
+
+    height:100%;
+
+    box-shadow:0 10px 30px rgba(0,0,0,.05);
+
+    transition:.3s;
+
+}
+
+.module-card:hover{
+
+    transform:translateY(-5px);
+
+}
+
+.module-top{
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    margin-bottom:25px;
+
+}
+
+.module-icon{
+
+    width:65px;
+    height:65px;
+
+    border-radius:18px;
+
+    background:var(--adenergy-red);
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    color:#fff;
+    font-size:28px;
+
+}
+
+.module-tag{
+
+    background:#ecfdf3;
+    color:#15803d;
+
+    padding:8px 14px;
+
+    border-radius:20px;
+
+    font-size:13px;
+    font-weight:700;
+
+}
+
+.module-card h3{
+
+    font-weight:700;
+    margin-bottom:15px;
+
+}
+
+.module-card p{
+
+    color:#6b7280;
+    line-height:1.8;
+    margin-bottom:25px;
+
+}
+
+/* RESPONSIVE */
+
+@media(max-width:768px){
+
+    .hero-section{
+
+        padding:35px;
+
+    }
+
+    .hero-title{
+
+        font-size:2.2rem;
+
+    }
+
+    .hero-description{
+
+        font-size:16px;
+
+    }
+
+}
