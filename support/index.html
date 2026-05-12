@@ -10,7 +10,7 @@
     <title>Mesa de Ayuda | Adenergy</title>
 
     <!-- Bootstrap -->
-    <link href="https://://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
           rel="stylesheet">
 
     <!-- Icons -->
@@ -25,159 +25,99 @@
 
 <body>
 
+<div class="support-wrapper">
+
 <div class="container py-5">
 
-    <!-- HEADER -->
-    <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-3">
+    <!-- HERO -->
+    <div class="support-hero mb-5">
 
-        <div>
+        <div class="row align-items-center g-4">
 
-            <h1 class="fw-bold support-title">
+            <!-- TEXTO -->
+            <div class="col-lg-8">
 
-                <i class="bi bi-ticket-detailed-fill"></i>
+                <div class="hero-content">
 
-                Mesa de Ayuda
+                    <div class="hero-badge">
 
-            </h1>
+                        <i class="bi bi-headset"></i>
 
-            <p class="text-muted mb-0">
+                        Soporte Técnico Corporativo
 
-                Registro y seguimiento de incidencias TI
+                    </div>
 
-            </p>
+                    <h1 class="hero-title mt-4">
 
-        </div>
+                        Mesa de Ayuda Adenergy
 
-        <div class="d-flex gap-2 flex-wrap justify-content-end">
+                    </h1>
 
-            <a href="../index.html"
-               class="btn btn-dark">
+                    <p class="hero-description">
 
-                <i class="bi bi-house-fill"></i>
-
-                Inicio
-
-            </a>
-
-            <a href="login.html"
-               class="btn btn-primary">
-
-                <i class="bi bi-shield-lock-fill"></i>
-
-                Panel Administrativo
-
-            </a>
-
-        </div>
-
-    </div>
-
-    <!-- BANNER -->
-    <div class="card shadow border-0 rounded-4 mb-4">
-
-        <div class="card-body p-4">
-
-            <div class="row align-items-center">
-
-                <div class="col-lg-8">
-
-                    <h3 class="fw-bold mb-3">
-
-                        Bienvenido al Centro de Soporte TI
-
-                    </h3>
-
-                    <p class="text-muted mb-0">
-
-                        Registra tu incidencia para recibir atención del equipo técnico.
-                        Todas las solicitudes son monitoreadas y gestionadas
-                        mediante SLA y seguimiento operativo.
+                        Registra incidencias, solicitudes o problemas técnicos
+                        para que el equipo de TI pueda brindarte atención y
+                        seguimiento oportuno.
 
                     </p>
 
-                </div>
+                    <div class="hero-buttons">
 
-                <div class="col-lg-4 text-lg-end mt-4 mt-lg-0">
+                        <a href="../index.html"
+                           class="btn btn-adenergy-secondary">
 
-                    <i class="bi bi-headset"
-                       style="font-size:90px;color:#c8102e;"></i>
+                            <i class="bi bi-house-fill"></i>
 
-                </div>
+                            Volver al Inicio
 
-            </div>
+                        </a>
 
-        </div>
+                        <a href="login.html"
+                           class="btn btn-adenergy-primary">
 
-    </div>
+                            <i class="bi bi-shield-lock-fill"></i>
 
-    <!-- KPIS -->
-    <div class="row g-4 mb-4">
+                            Panel Administrativo
 
-        <div class="col-md-4">
+                        </a>
 
-            <div class="card shadow border-0 rounded-4 kpi-card">
-
-                <div class="card-body">
-
-                    <h6 class="text-muted">
-
-                        Tickets Generados
-
-                    </h6>
-
-                    <h2 id="kpiTotal">
-
-                        0
-
-                    </h2>
+                    </div>
 
                 </div>
 
             </div>
 
-        </div>
+            <!-- CARD LATERAL -->
+            <div class="col-lg-4">
 
-        <div class="col-md-4">
+                <div class="hero-side-card">
 
-            <div class="card shadow border-0 rounded-4 kpi-card">
+                    <div class="hero-icon">
 
-                <div class="card-body">
+                        <i class="bi bi-ticket-detailed-fill"></i>
 
-                    <h6 class="text-muted">
+                    </div>
 
-                        Tickets Abiertos
+                    <h4>
 
-                    </h6>
+                        Atención TI
 
-                    <h2 id="kpiAbiertos">
+                    </h4>
 
-                        0
+                    <p>
 
-                    </h2>
+                        Nuestro equipo dará seguimiento a tu ticket
+                        para resolver tu incidencia lo antes posible.
 
-                </div>
+                    </p>
 
-            </div>
+                    <div class="hero-status">
 
-        </div>
+                        <span class="status-dot"></span>
 
-        <div class="col-md-4">
+                        Sistema Operativo
 
-            <div class="card shadow border-0 rounded-4 kpi-card">
-
-                <div class="card-body">
-
-                    <h6 class="text-muted">
-
-                        Tiempo Promedio
-
-                    </h6>
-
-                    <h2>
-
-                        45 min
-
-                    </h2>
+                    </div>
 
                 </div>
 
@@ -188,36 +128,34 @@
     </div>
 
     <!-- FORMULARIO -->
-    <div class="card shadow-lg border-0 rounded-4 mb-5">
+    <div class="card support-card shadow-lg border-0 rounded-4 mb-5">
 
         <div class="card-body p-4 p-lg-5">
 
-            <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-3">
+            <!-- TITULO -->
+            <div class="section-header mb-5">
 
                 <div>
 
-                    <h4 class="mb-1">
+                    <h3 class="section-title">
+
+                        <i class="bi bi-plus-circle-fill"></i>
 
                         Crear Ticket
 
-                    </h4>
+                    </h3>
 
-                    <p class="text-muted mb-0">
+                    <p class="section-subtitle mb-0">
 
-                        Completa la información del incidente
+                        Completa la información para registrar tu solicitud.
 
                     </p>
 
                 </div>
 
-                <span class="badge bg-success">
-
-                    Sistema Activo
-
-                </span>
-
             </div>
 
+            <!-- FORM -->
             <form id="ticketForm">
 
                 <div class="row g-4">
@@ -231,11 +169,21 @@
 
                         </label>
 
-                        <input type="text"
-                               class="form-control"
-                               id="usuario"
-                               placeholder="Ingresa tu nombre"
-                               required>
+                        <div class="input-group custom-input">
+
+                            <span class="input-group-text">
+
+                                <i class="bi bi-person-fill"></i>
+
+                            </span>
+
+                            <input type="text"
+                                   class="form-control"
+                                   id="usuario"
+                                   placeholder="Ingresa tu nombre"
+                                   required>
+
+                        </div>
 
                     </div>
 
@@ -248,10 +196,20 @@
 
                         </label>
 
-                        <input type="text"
-                               class="form-control"
-                               id="fecha"
-                               readonly>
+                        <div class="input-group custom-input">
+
+                            <span class="input-group-text">
+
+                                <i class="bi bi-calendar-event-fill"></i>
+
+                            </span>
+
+                            <input type="text"
+                                   class="form-control"
+                                   id="fecha"
+                                   readonly>
+
+                        </div>
 
                     </div>
 
@@ -264,10 +222,20 @@
 
                         </label>
 
-                        <input type="text"
-                               class="form-control"
-                               id="ticket"
-                               readonly>
+                        <div class="input-group custom-input">
+
+                            <span class="input-group-text">
+
+                                <i class="bi bi-hash"></i>
+
+                            </span>
+
+                            <input type="text"
+                                   class="form-control"
+                                   id="ticket"
+                                   readonly>
+
+                        </div>
 
                     </div>
 
@@ -280,27 +248,37 @@
 
                         </label>
 
-                        <select class="form-select"
-                                id="division"
-                                required>
+                        <div class="input-group custom-input">
 
-                            <option value="">
-                                Seleccionar
-                            </option>
+                            <span class="input-group-text">
 
-                            <option>
-                                Adenergy
-                            </option>
+                                <i class="bi bi-building-fill"></i>
 
-                            <option>
-                                Ducter
-                            </option>
+                            </span>
 
-                            <option>
-                                Nietofin
-                            </option>
+                            <select class="form-select"
+                                    id="division"
+                                    required>
 
-                        </select>
+                                <option value="">
+                                    Seleccionar
+                                </option>
+
+                                <option>
+                                    Adenergy
+                                </option>
+
+                                <option>
+                                    Ducter
+                                </option>
+
+                                <option>
+                                    Nietofin
+                                </option>
+
+                            </select>
+
+                        </div>
 
                     </div>
 
@@ -313,24 +291,73 @@
 
                         </label>
 
-                        <select class="form-select"
-                                id="categoria"
-                                required>
+                        <div class="input-group custom-input">
 
-                            <option value="">
-                                Seleccionar
-                            </option>
+                            <span class="input-group-text">
 
-                            <option>Windows</option>
-                            <option>VPN</option>
-                            <option>WIFI</option>
-                            <option>Correo Electrónico</option>
-                            <option>Hardware</option>
-                            <option>Software</option>
-                            <option>Microsoft Teams</option>
-                            <option>Impresoras</option>
+                                <i class="bi bi-grid-fill"></i>
 
-                        </select>
+                            </span>
+
+                            <select class="form-select"
+                                    id="categoria"
+                                    required>
+
+                                <option value="">
+                                    Seleccionar
+                                </option>
+
+                                <option>
+                                    Windows
+                                </option>
+
+                                <option>
+                                    Telefonía Móvil
+                                </option>
+
+                                <option>
+                                    Correo Electrónico
+                                </option>
+
+                                <option>
+                                    VPN
+                                </option>
+
+                                <option>
+                                    Navegación en Internet
+                                </option>
+
+                                <option>
+                                    WIFI
+                                </option>
+
+                                <option>
+                                    Ethernet
+                                </option>
+
+                                <option>
+                                    Microsoft Teams
+                                </option>
+
+                                <option>
+                                    SharePoint
+                                </option>
+
+                                <option>
+                                    Hardware
+                                </option>
+
+                                <option>
+                                    Software
+                                </option>
+
+                                <option>
+                                    Impresoras
+                                </option>
+
+                            </select>
+
+                        </div>
 
                     </div>
 
@@ -343,15 +370,36 @@
 
                         </label>
 
-                        <select class="form-select"
-                                id="prioridad">
+                        <div class="input-group custom-input">
 
-                            <option>Baja</option>
-                            <option selected>Media</option>
-                            <option>Alta</option>
-                            <option>Crítica</option>
+                            <span class="input-group-text">
 
-                        </select>
+                                <i class="bi bi-exclamation-triangle-fill"></i>
+
+                            </span>
+
+                            <select class="form-select"
+                                    id="prioridad">
+
+                                <option>
+                                    Baja
+                                </option>
+
+                                <option selected>
+                                    Media
+                                </option>
+
+                                <option>
+                                    Alta
+                                </option>
+
+                                <option>
+                                    Crítica
+                                </option>
+
+                            </select>
+
+                        </div>
 
                     </div>
 
@@ -364,10 +412,20 @@
 
                         </label>
 
-                        <input type="text"
-                               class="form-control"
-                               id="contacto"
-                               placeholder="correo@empresa.com">
+                        <div class="input-group custom-input">
+
+                            <span class="input-group-text">
+
+                                <i class="bi bi-envelope-fill"></i>
+
+                            </span>
+
+                            <input type="text"
+                                   class="form-control"
+                                   id="contacto"
+                                   placeholder="correo@empresa.com">
+
+                        </div>
 
                     </div>
 
@@ -380,10 +438,20 @@
 
                         </label>
 
-                        <input type="text"
-                               class="form-control"
-                               id="equipo"
-                               placeholder="Ejemplo: ADE-0001">
+                        <div class="input-group custom-input">
+
+                            <span class="input-group-text">
+
+                                <i class="bi bi-pc-display"></i>
+
+                            </span>
+
+                            <input type="text"
+                                   class="form-control"
+                                   id="equipo"
+                                   placeholder="Ejemplo: ADE-0001">
+
+                        </div>
 
                     </div>
 
@@ -396,8 +464,8 @@
 
                         </label>
 
-                        <textarea class="form-control"
-                                  rows="5"
+                        <textarea class="form-control textarea-custom"
+                                  rows="6"
                                   id="descripcion"
                                   placeholder="Describe detalladamente el incidente..."
                                   required></textarea>
@@ -405,10 +473,10 @@
                     </div>
 
                     <!-- BOTON -->
-                    <div class="col-12 text-end">
+                    <div class="col-12 text-end mt-4">
 
                         <button type="submit"
-                                class="btn btn-primary btn-lg">
+                                class="btn btn-adenergy-primary btn-lg px-5">
 
                             <i class="bi bi-save-fill"></i>
 
@@ -427,37 +495,45 @@
     </div>
 
     <!-- TABLA -->
-    <div class="card shadow-lg border-0 rounded-4">
+    <div class="card support-card shadow-lg border-0 rounded-4">
 
-        <div class="card-body p-4">
+        <div class="card-body p-4 p-lg-5">
 
-            <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-3">
+            <div class="section-header mb-4">
 
                 <div>
 
-                    <h4 class="mb-1">
+                    <h3 class="section-title">
+
+                        <i class="bi bi-clock-history"></i>
 
                         Tickets Registrados
 
-                    </h4>
+                    </h3>
 
-                    <p class="text-muted mb-0">
+                    <p class="section-subtitle mb-0">
 
-                        Historial de incidencias registradas
+                        Historial de incidencias registradas.
 
                     </p>
 
                 </div>
 
-                <input type="text"
-                       class="form-control search-input"
-                       placeholder="Buscar ticket...">
+                <div class="search-box">
+
+                    <i class="bi bi-search"></i>
+
+                    <input type="text"
+                           class="form-control search-input"
+                           placeholder="Buscar ticket...">
+
+                </div>
 
             </div>
 
             <div class="table-responsive">
 
-                <table class="table table-hover align-middle">
+                <table class="table table-hover align-middle support-table">
 
                     <thead>
 
@@ -486,6 +562,8 @@
         </div>
 
     </div>
+
+</div>
 
 </div>
 
