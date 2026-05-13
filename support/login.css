@@ -1,0 +1,70 @@
+/* =========================================
+   LOGIN - MESA DE AYUDA
+========================================= */
+
+body{
+    margin:0;
+    padding:0;
+    min-height:100vh;
+
+    background-image:url("img/fondo-login.jpg");
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+    background-attachment:fixed;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    font-family:Arial, Helvetica, sans-serif;
+    position:relative;
+}
+
+/* CAPA OSCURA */
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,0.45);
+    z-index:-1;
+}
+
+/* CARD LOGIN */
+.card{
+    border:none;
+    border-radius:24px;
+    background:rgba(255,255,255,0.92);
+    backdrop-filter:blur(10px);
+    box-shadow:0 10px 35px rgba(0,0,0,0.25);
+}
+
+/* TITULO */
+h2{
+    color:#111;
+}
+
+/* INPUTS */
+.form-control{
+    border-radius:14px;
+    padding:14px;
+    border:1px solid #dcdcdc;
+    transition:0.3s;
+}
+
+.form-control:focus{
+    border-color:#0d6efd;
+    box-shadow:0 0 0 0.2rem rgba(13,110,253,0.15);
+}
+
+/* BOTON */
+.btn{
+    border-radius:14px;
+    padding:12px;
+    font-weight:600;
+    transition:0.3s;
+}
+
+.btn:hover{
+    transform:translateY(-2px);
+}
