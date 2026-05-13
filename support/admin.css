@@ -348,7 +348,7 @@ canvas{
 .hero-title{
     font-size: 3rem;
     font-weight: 800;
-    color: #1d232f;
+    color: #ffffff;
     margin-bottom: 20px;
 }
 
@@ -432,7 +432,7 @@ canvas{
 
 .section-title{
     font-weight: 800;
-    color: #ffffff;
+    color: #54565a;
     margin-bottom: 8px;
 }
 
@@ -442,7 +442,7 @@ canvas{
 }
 
 .section-subtitle{
-    color: #ffffff;
+    color: #54565a;
 }
 
 /* =========================================================
